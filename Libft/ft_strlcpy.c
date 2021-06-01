@@ -10,22 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-unsigned int	ft_strlen(const char *src)
+size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
 {
-	unsigned int	length;
-
-	length = 0;
-	while (src[length])
-		length++;
-	return (length);
-}
-
-unsigned int	ft_strlcpy(char * restrict dst, const char * restrict src, unsigned int dstsize)
-{
-	unsigned int index;
-	unsigned int dst_len;
-	unsigned int src_len;
+	size_t index;
+	size_t dst_len;
+	size_t src_len;
 
 	index = 0;
 	dst_len = ft_strlen(dst);

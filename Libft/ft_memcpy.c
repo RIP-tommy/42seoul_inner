@@ -6,25 +6,25 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:20:42 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/05/22 21:41:01 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/01 18:08:36 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void		*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	size_t			i;
+	size_t			idx;
 	unsigned char	*src_temp;
 	unsigned char	*dst_temp;
 
-	i = 0;
+	idx = 0;
 	src_temp = (unsigned char *)src;
 	dst_temp = (unsigned char *)dst;
-	while (i < n)
+	while (idx < n)
 	{
-		dst_temp[i] = src_temp[i];
-		i++;
+		dst_temp[idx] = src_temp[idx];
+		idx++;
 	}
-	return (dst_temp);
+	return (dst);
 }

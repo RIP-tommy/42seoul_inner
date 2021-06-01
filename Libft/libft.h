@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 15:40:41 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/05/18 20:19:27 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/01 18:05:08 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 	void		*ft_memset(void *b, int c, size_t len);
 	void		ft_bzero(void *s, size_t n);
 	void		*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
-	// ft_memccpy()
-	// ft_memmove()
+	void		*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n);
+	void		*ft_memmove(void *dst, const void *src, size_t len);
 	// ft_memchr()
 	// ft_memcmp()
 	size_t		ft_strlen(const char *s);
