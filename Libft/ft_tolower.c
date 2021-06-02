@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 12:10:27 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/02 21:19:23 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/02 20:31:11 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/02 20:31:21 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-size_t	ft_strlen(const char *src)
+int	toupper(int c)
 {
-	size_t length;
-
-	length = 0;
-	while(src[length])
-		length++;
-	return (length);
+	if ((97 <= c) && (c <= 122))
+		return (c + 32);
+	else
+		return (c);
 }

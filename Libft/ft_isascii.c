@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 12:10:27 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/02 21:19:23 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/02 21:55:37 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/02 21:55:42 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-size_t	ft_strlen(const char *src)
+int	ft_isascii(int c)
 {
-	size_t length;
-
-	length = 0;
-	while(src[length])
-		length++;
-	return (length);
+	if (0 <= c && c <= 127)
+		return (1);
+	return (0);
 }

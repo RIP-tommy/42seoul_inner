@@ -3,40 +3,26 @@
 #include <string.h>
 #include <stddef.h>
 
-void		*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			idx;
-	unsigned char	*src_temp;
-	unsigned char	*dst_temp;
+	char	*temp;
+	size_t	idx;
 
 	idx = 0;
-	src_temp = (unsigned char *)src;
-	dst_temp = (unsigned char *)dst;
+	temp = (char *)malloc(len - (size_t)start +1);
+	if (!temp)
+		return (NULL);
 	while (idx < len)
 	{
-		dst_temp[idx] = src_temp[idx];
+		temp[idx] = s[(size_t)start + idx];
 		idx++;
 	}
-	return (dst);
+	return (temp);
 }
 
 int main()
 {
-	char src[] = "these string is a src string";
-	char dst[99];
+	char s[] = "Hello World!";
 
-	printf("origin dst: %s\n", dst);
-
-	// char *copied =  memmove(dst, src, 11);
-	char *copied = ft_memmove(dst, src, 11);
-
-	printf("%s\n", copied);
-	printf("dst string length: %zu\n", strlen(dst));
-	printf("%s\n", dst);
-
-	// for (size_t i = 0; i < strlen(dst); i++) {
-	// 	printf("%zu: %c\n", i, dst[i]);
-	// }
-
-	return 0;
+	printf("%s", ft_substr(s, 1, 5));
 }

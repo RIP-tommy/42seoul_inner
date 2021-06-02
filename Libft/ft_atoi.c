@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 20:11:53 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/05/07 15:52:59 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/02 20:43:56 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ bool	is_space(char c)
 	return (((9 <= c) && (c <= 11)) || c == ' ');
 }
 
-int		checksign(char c)
+int		check_sign(char c)
 {
 	if (c == '+')
 		return (1);
@@ -41,9 +41,9 @@ int		ft_atoi(const char *str)
 		i++;
 	while (str[i])
 	{
-		if (checksign(str[i]) == 0)
+		if (check_sign(str[i]) == 0)
 			break ;
-		sign *= checksign(str[i]);
+		sign *= check_sign(str[i]);
 		i++;
 	}
 	while (str[i])

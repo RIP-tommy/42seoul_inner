@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 12:10:27 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/02 21:19:23 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/02 14:18:56 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/02 15:36:01 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-size_t	ft_strlen(const char *src)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t length;
+	int				isfounded;
+	size_t			idx;
+	unsigned char	*temp;
 
-	length = 0;
-	while(src[length])
-		length++;
-	return (length);
+	idx = 0;
+	temp = (unsigned char*)s;
+	while (idx < n)
+	{
+		if (temp[idx] == (unsigned char)c)
+			break;
+		idx++;
+	}
+	if(idx == n)
+		return (NULL);
+	return (temp + idx);
 }
