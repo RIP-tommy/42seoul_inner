@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 14:18:56 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/02 15:36:01 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/03 14:48:45 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (idx < n)
 	{
 		if (temp[idx] == (unsigned char)c)
-			break;
+			break ;
 		idx++;
 	}
-	if(idx == n)
+	if (idx == n)
 		return (NULL);
 	return (temp + idx);
 }

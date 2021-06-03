@@ -6,13 +6,13 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 16:13:47 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/01 18:01:39 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/03 14:55:19 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	size_t			idx;
 	unsigned char	*dst_temp;
@@ -25,10 +25,10 @@ void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
 	{
 		dst_temp[idx] = src_temp[idx];
 		if (src_temp[idx] == (unsigned char)c)
-			break;
+			break ;
 		idx++;
 	}
 	if (idx != n)
-		return (dst_temp  + idx + 1);
+		return (dst_temp + idx + 1);
 	return (NULL);
 }

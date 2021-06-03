@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 16:11:15 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/02 17:33:32 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/03 14:49:45 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		{
 			while (n_temp[idx])
 			{
-				if(h_temp[start + idx] != n_temp[idx])
+				if (h_temp[start + idx] != n_temp[idx])
 				{
 					return (NULL);
 					break ;
@@ -41,5 +41,5 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		}
 		start++;
 	}
-	return(h_temp + start);
+	return (h_temp + start);
 }

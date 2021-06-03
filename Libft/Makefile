@@ -6,7 +6,7 @@
 #    By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/14 17:12:50 by sungmcho          #+#    #+#              #
-#    Updated: 2021/06/02 21:45:53 by sungmcho         ###   ########.fr        #
+#    Updated: 2021/06/03 17:44:53 by sungmcho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ ft_toupper.c\
 ft_tolower.c\
 ft_calloc.c\
 ft_strdup.c\
-ft_substr.c
+ft_substr.c\
+ft_strjoin.c
 
 $(NAME): $(OBJS)
 	ar -cr $@ $^

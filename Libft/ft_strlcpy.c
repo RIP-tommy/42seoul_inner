@@ -6,31 +6,29 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 12:01:29 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/05/07 13:30:51 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/03 16:40:24 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 #include "libft.h"
 
-size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t index;
-	size_t dst_len;
-	size_t src_len;
+	size_t	index;
+	char	*dst_temp;
+	char	*src_temp;
 
+	if (!dstsize)
+		return (ft_strlen(src));
 	index = 0;
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	if (dst_len + 1 > dstsize)
-		return (dst_len + dstsize - 1);
-	else
+	dst_temp = (char *)dst;
+	src_temp = (char *)src;
+	while (index + 1 < dstsize && src[index])
 	{
-		while (dst_len + index + 1 < dstsize)
-		{
-			dst[dst_len + index] = src[index];
-			index++;
-		}
-		dst[dst_len + index] = '\0';
-		return (dst_len + src_len);
+		dst_temp[index] = src_temp[index];
+		index++;
 	}
+	dst_temp[index] = '\0';
+	return (ft_strlen(src));
 }

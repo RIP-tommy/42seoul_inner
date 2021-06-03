@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 20:11:53 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/02 20:43:56 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/03 17:21:18 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int				ft_atoi(const char *str)
 	rslt = 0;
 	while (((9 <= str[i]) && (str[i] <= 13)) || str[i] == ' ')
 		i++;
-	while (check_sign(str[i]) != 0)
+	if (check_sign(str[i]) != 0)
 	{
 		sign *= check_sign(str[i]);
 		i++;
