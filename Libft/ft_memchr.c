@@ -14,7 +14,6 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int				isfounded;
 	size_t			idx;
 	unsigned char	*temp;
 

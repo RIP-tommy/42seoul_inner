@@ -23,13 +23,12 @@ void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
 	src_temp = (unsigned char *)src;
 	while (idx < n)
 	{
-		if (src_temp[idx] == c)
-			break;
 		dst_temp[idx] = src_temp[idx];
+		if (src_temp[idx] == (unsigned char)c)
+			break;
 		idx++;
 	}
-	if (idx == n)
-		return (NULL);
-	dst = dst_temp;
-	return (dst);
+	if (idx != n)
+		return (dst_temp  + idx + 1);
+	return (NULL);
 }

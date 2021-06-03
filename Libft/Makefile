@@ -14,8 +14,7 @@ CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 NAME=libft.a
 OBJS = $(SRCS:.c=.o)
-SRCS=ft_memcpy.c\
-ft_memset.c\
+SRCS=ft_memset.c\
 ft_bzero.c\
 ft_memcpy.c\
 ft_memccpy.c\
@@ -37,6 +36,8 @@ ft_isascii.c\
 ft_isprint.c\
 ft_toupper.c\
 ft_tolower.c\
+ft_calloc.c\
+ft_strdup.c\
 ft_substr.c
 
 $(NAME): $(OBJS)

@@ -13,7 +13,19 @@
 #include <stddef.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
+// char	*ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	char	*temp;
+// 	size_t	idx;
 
-}
+// 	idx = 0;
+// 	temp = (char *)malloc(len - (size_t)start);
+// 	if (!temp)
+// 		return (NULL);
+// 	while (idx < len)
+// 	{
+// 		temp[idx] = s[(size_t)start + idx];
+// 		idx++;
+// 	}
+// 	return (temp);
+// }

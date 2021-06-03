@@ -25,14 +25,17 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	n_temp = (char *)needle;
 	if (n_temp[0] == '\0')
 		return (h_temp);
-	while (start < len || h_temp[start])
+	while (start < len && h_temp[start])
 	{
-		if (h_temp[start] == n_temp[0])
+		if (h_temp[start] == n_temp[start])
 		{
 			while (n_temp[idx])
 			{
 				if(h_temp[start + idx] != n_temp[idx])
+				{
 					return (NULL);
+					break ;
+				}
 				idx++;
 			}
 		}
