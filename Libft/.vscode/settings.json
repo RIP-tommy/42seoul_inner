@@ -11,6 +11,9 @@
         "unordered_map": "c",
         "utility": "c",
         "vector": "c",
-        "stddef.h": "c"
+        "stddef.h": "c",
+        "stdlib.h": "c",
+        "cstring": "cpp",
+        "__node_handle": "c"
     }
 }

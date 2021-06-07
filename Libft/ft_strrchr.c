@@ -10,18 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 #include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		idx;
+	size_t	idx;
 	char	*temp;
 
-	idx = ft_strlen(s) - 1;
-	temp = (char *)s;
-	if (c == '\0')
-		return (temp = "\0");
-	while (idx > -1)
+	idx = ft_strlen(s);
+	temp = (char *) s;
+	if (!c)
+		return (temp + idx);
+	while (idx != (size_t)-1)
 	{
 		if (temp[idx] == c)
 			return (temp + idx);
