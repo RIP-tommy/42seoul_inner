@@ -28,7 +28,7 @@ size_t	get_max_len(char const *s, char c)
 	str_len = ft_strlen(s);
 	while (s[++idx])
 	{
-		if (s[idx] == c)
+		if (s[idx - 1] != c && s[idx] == c)
 		{
 			if (max_len < idx - start)
 				max_len = idx - start;
@@ -67,9 +67,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (s[++idx])
 	{
-		if (s[idx] == c && s[idx + 1] == c)
-			start = idx + 1;
-		else if (s[idx] == c)
+		if (s[idx] != c)
 		{
 			temp = slicer(s, start, idx);
 			rslt[idx2++] = temp;
@@ -80,3 +78,33 @@ char	**ft_split(char const *s, char c)
 	rslt[idx2] = temp;
 	return (rslt);
 }
+
+// char	**ft_split(char const *s, char c)
+// {
+// 	char	**rslt;
+// 	char	*temp;
+// 	size_t	idx;
+// 	size_t	idx2;
+// 	size_t	start;
+
+// 	idx = -1;
+// 	idx2 = 0;
+// 	start = 0;
+// 	rslt = (char **)malloc(get_max_len(s, c) * (counter(s, c) + 1));
+// 	if (!rslt)
+// 		return (NULL);
+// 	while (s[++idx])
+// 	{
+// 		if (s[idx] == c && s[idx + 1] == c)
+// 			start = idx + 1;
+// 		else if (s[idx] == c)
+// 		{
+// 			temp = slicer(s, start, idx);
+// 			rslt[idx2++] = temp;
+// 			start = idx + 1;
+// 		}
+// 	}
+// 	temp = slicer(s, start, idx);
+// 	rslt[idx2] = temp;
+// 	return (rslt);
+// }
