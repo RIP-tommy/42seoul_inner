@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:14:28 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/07 16:47:35 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/07 20:13:51 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ static char	*print_negative(int n, int count, int power)
 
 static char	*print_positive(int n, int count, int power)
 {
-
 	char	*rslt;
 	int		idx;
 
