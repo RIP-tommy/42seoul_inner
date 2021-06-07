@@ -1,53 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/07 16:14:28 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/07 16:47:35 by sungmcho         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <stddef.h>
 #include "libft.h"
 
-
-static char	*print_min()
+static char	*print_min(void)
 {
 	char	*rslt;
 
 	rslt = (char *)malloc(11);
-		if (!rslt)
-			return (NULL);
+	if (!rslt)
+		return (NULL);
 	rslt = ft_strdup("-2147483648");
 	return (rslt);
 }
 
-static char	*print_zero()
+static char	*print_zero(void)
 {
 	char	*rslt;
 
 	rslt = (char *)malloc(2);
-		if (!rslt)
-			return (NULL);
-	rslt = ft_strdup("0");
-	return (rslt);
-}
-
-static char	*print_positive(int n, int count, int power)
-{
-
-	char	*rslt;
-	int		idx;
-
-	idx = 0;
-	rslt = (char *)malloc(11 - count);
 	if (!rslt)
 		return (NULL);
-	while (n != 0)
-	{
-		rslt[idx] = (signed char)((n / power) + '0');
-		n %= power;
-		power /= 10;
-		idx++;
-	}
-	while (idx < 10 - count)
-	{
-		rslt[idx] = '0';
-		idx++;
-	}
-	rslt[idx] = '\0';
+	rslt = ft_strdup("0");
 	return (rslt);
 }
 
@@ -70,6 +55,32 @@ static char	*print_negative(int n, int count, int power)
 		idx++;
 	}
 	while (idx < 12 - count)
+	{
+		rslt[idx] = '0';
+		idx++;
+	}
+	rslt[idx] = '\0';
+	return (rslt);
+}
+
+static char	*print_positive(int n, int count, int power)
+{
+
+	char	*rslt;
+	int		idx;
+
+	idx = 0;
+	rslt = (char *)malloc(11 - count);
+	if (!rslt)
+		return (NULL);
+	while (n != 0)
+	{
+		rslt[idx] = (signed char)((n / power) + '0');
+		n %= power;
+		power /= 10;
+		idx++;
+	}
+	while (idx < 10 - count)
 	{
 		rslt[idx] = '0';
 		idx++;
@@ -102,8 +113,7 @@ char		*ft_itoa(int n)
 		power /= 10;
 		count++;
 	}
-	if (!sign)
-		return (print_negative(n, count, power));
-	else
+	if (sign)
 		return (print_positive(n, count, power));
+	return (print_negative(n, count, power));
 }

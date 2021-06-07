@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:52:09 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/02 16:08:35 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/07 16:13:39 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 	char	*temp;
 
 	idx = ft_strlen(s);
-	temp = (char *) s;
+	temp = (char *)s;
 	if (!c)
 		return (temp + idx);
 	while (idx != (size_t)-1)
