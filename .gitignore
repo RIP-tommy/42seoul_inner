@@ -1,10 +1,10 @@
 .DS_Store
 *.o
 *.a
+main
+main.dSYM
 
-Libft/.vscode
 Libft/libftTester
 Libft/Libftest
 Libft/libft-war-machine
 Libft/libft-unit-test
-Libft/main
