@@ -7,7 +7,7 @@ SRCS=get_next_line.c\
 get_next_line_utils.c
 
 all: 
-	$(CC) -I/Users/sm/42seoul_inner/gnl $(DEFINE) main.c $(SRCS) -o $(NAME)
+	$(CC) -I/Users/sm/42seoul_inner/gnl $(DEFINE) -o $(NAME) -g main.c $(SRCS) 
 clean: 
 	rm $(name)
 fclean:
