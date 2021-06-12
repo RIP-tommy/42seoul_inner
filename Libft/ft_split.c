@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:19:23 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/07 20:18:59 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/12 16:35:33 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,73 @@
 #include <stddef.h>
 #include "libft.h"
 
-char		**ft_split(char const *s, char c)
+static char		**ft_memfree(char **tab)
 {
-	char	**rslt;
-	size_t	idx;
-	size_t	word_counts;
+	unsigned int	i;
 
-	idx = 0;
-	word_counts = 0;
-	while (s[idx])
+	i = 0;
+	while (tab[i])
 	{
-		if (s[idx + 1] != c && s[idx] == c)
-			word_counts++;
-		idx++;
+		free(tab[i]);
+		i++;
 	}
-	if (!word_counts)
+	free(tab);
+	tab = 0;
+	return (0);
+}
+
+static int		c_w(char const *s, char c)
+{
+	int		counts;
+	int		word_in;
+	int		idx;
+
+	counts = 0;
+	word_in = 0;
+	idx = -1;
+	while (s[++idx])
 	{
-		rslt = (char **)malloc(2);
-		if (!rslt)
-			return (NULL);
-		rslt[0] = "";
-		rslt[1] = "\0";
-		return (rslt);
+		if (s[idx] == c)
+		{
+			if (word_in)
+			{
+				word_in = 0;
+				counts++;
+			}
+		}
+		else
+			word_in = 1;
 	}
-	return (NULL);
+	if (word_in)
+		counts++;
+	return (counts);
+}
+
+char			**ft_split(char const *s, char c)
+{
+	char	*break_point;
+	char	**rslt;
+	size_t	i;
+	size_t	len;
+
+	if (!(rslt = (char **)malloc(sizeof(char *) * (c_w(s, c) + 1))))
+		return (NULL);
+	i = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			break_point = (char *)s;
+			while (*s && *s != c)
+				++s;
+			len = s - break_point + 1;
+			if (!(rslt[i] = (char *)malloc(len)))
+				return (ft_memfree(rslt));
+			ft_strlcpy(rslt[i++], break_point, len);
+		}
+		else
+			++s;
+	}
+	rslt[i] = 0;
+	return (rslt);
 }

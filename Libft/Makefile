@@ -6,14 +6,14 @@
 #    By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/14 17:12:50 by sungmcho          #+#    #+#              #
-#    Updated: 2021/06/03 17:44:53 by sungmcho         ###   ########.fr        #
+#    Updated: 2021/06/12 19:30:35 by sungmcho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 NAME=libft.a
-OBJS = $(SRCS:.c=.o)
+OBJS=$(SRCS:.c=.o)
 SRCS=ft_memset.c\
 ft_bzero.c\
 ft_memcpy.c\
@@ -49,17 +49,33 @@ ft_putstr_fd.c\
 ft_putendl_fd.c\
 ft_putnbr_fd.c
 
+B_SRCS: ft_lstnew.c
+
 $(NAME): $(OBJS)
 	ar -cr $@ $^
 $(OBJS):
 	$(CC) -c $(SRCS)
+$(B_OBJS):
+	$(CC) -c $(B_SRCS)
+
+ifdef WITH_BONUS
+	OBJ_FILES = $(OBJS) $(B_OBJS)
+else
+	OBJ_FILES = $(OBJS)
+endif
+
 all: $(NAME)
+
 re:
 	make fclean
 	make all
+
 clean:
 	rm $(OBJS)
 	rm $(NAME)
-fclean:
-	rm -f $(OBJS)
+fclean: clean
 	rm -f $(NAME)
+all : $(NAME)
+bonus : 
+	make WITH_BONUS=1 all
+.PHONY: all bonus clean fclean re

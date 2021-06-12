@@ -5,13 +5,16 @@
             "label": "gcc build active file",
             "command": "/usr/bin/gcc",
             "args": [
+                "-I/Users/sungmcho/inner/Libft",
+                "-g3",
+                "-fsanitize=address",
                 "-g",
-                "${file}",
+                "*.c",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/main"
             ],
             "options": {
-                "cwd": "/usr/bin"
+                "cwd": "/Users/sungmcho/inner/Libft"
             }
         }
     ],

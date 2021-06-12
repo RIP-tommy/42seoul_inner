@@ -6,14 +6,14 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 20:11:53 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/03 17:21:18 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/12 19:28:07 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#include <stddef.h>
 #include "libft.h"
 
-static	int		check_sign(char c)
+static	int	check_sign(char c)
 {
 	if (c == '+')
 		return (1);
@@ -23,11 +23,11 @@ static	int		check_sign(char c)
 		return (0);
 }
 
-int				ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	rslt;
+	int		i;
+	int		sign;
+	size_t	rslt;
 
 	i = 0;
 	sign = 1;
@@ -41,8 +41,12 @@ int				ft_atoi(const char *str)
 	}
 	while (ft_isdigit(str[i]) != 0)
 	{
-		rslt = rslt * 10 + ((str[i] - '0') * sign);
+		rslt = rslt * 10 + ((str[i] - '0'));
 		i++;
 	}
-	return (rslt);
+	if (sign > 0 && rslt > 9223372036854775807llu)
+		return (-1);
+	if (sign < 0 && rslt > 9223372036854775808llu)
+		return (0);
+	return (sign * (int)rslt);
 }

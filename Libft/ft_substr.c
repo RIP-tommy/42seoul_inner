@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 21:27:14 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/03 20:11:25 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/12 16:30:02 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*temp;
 	size_t	idx;
 
-	if ((size_t)start >= ft_strlen(s))
-		return ("");
+	if (start >= ft_strlen(s))
+		return ((ft_strdup("")));
 	if (ft_strlen(s) == 0)
-		return ("");
+		return (0);
 	idx = 0;
 	temp = (char *)malloc(len + 1);
 	if (!temp)
