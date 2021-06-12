@@ -1,5 +1,11 @@
 {
     "code-runner.executorMap": {
         "c": "cd $dir && gcc -I$dir -o main *.c && $dirmain"
+    },
+    "files.associations": {
+        "__bit_reference": "c",
+        "__string": "c",
+        "algorithm": "c",
+        "sstream": "c"
     }
 }

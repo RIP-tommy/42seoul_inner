@@ -6,36 +6,27 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 16:11:15 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/12 19:37:49 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/12 21:21:22 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t limit)
 {
-	int		start;
-	int		idx;
-	char	*h_temp;
-	char	*n_temp;
+	size_t	i;
 
-	start = -1;
-	idx = 0;
-	h_temp = (char *)haystack;
-	n_temp = (char *)needle;
-	if (n_temp[0] == '\0')
-		return (h_temp);
-	while (++start < (int)len && h_temp[start])
+	if (!*needle)
+		return ((char *)haystack);
+	if (!ft_strlen(haystack) || limit < ft_strlen(needle))
+		return (NULL);
+	i = 0;
+	while (i + ft_strlen(needle) <= limit && haystack[i])
 	{
-		if (h_temp[start] == n_temp[0])
-			while (n_temp[++idx] && start + idx < (int)len)
-				if (h_temp[start + idx] != n_temp[idx])
-				{
-					return (NULL);
-					break ;
-				}
-		if (!n_temp[idx])
-			return (h_temp + start);
+		if (haystack[i] == needle[0] && !ft_memcmp(&haystack[i], &needle[0], ft_strlen(needle)))
+			return ((char *)haystack + i);
+		++i;
 	}
 	return (NULL);
 }

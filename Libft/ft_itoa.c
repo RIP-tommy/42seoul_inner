@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:14:28 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/07 20:13:51 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/12 21:36:32 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,12 @@
 
 static char	*print_min(void)
 {
-	char	*rslt;
-
-	rslt = (char *)malloc(11);
-	if (!rslt)
-		return (NULL);
-	rslt = ft_strdup("-2147483648");
-	return (rslt);
+	return (ft_strdup("-2147483648"));
 }
 
 static char	*print_zero(void)
 {
-	char	*rslt;
-
-	rslt = (char *)malloc(2);
-	if (!rslt)
-		return (NULL);
-	rslt = ft_strdup("0");
-	return (rslt);
+	return (ft_strdup("0"));
 }
 
 static char	*print_negative(int n, int count, int power)

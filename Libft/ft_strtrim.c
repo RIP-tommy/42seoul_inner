@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:13:50 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/07 16:13:50 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/12 21:33:49 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static size_t	get_start(char const *s1, char const *set)
 		while (set[idx])
 		{
 			if (set[idx] == s1[start])
-				break;
+				break ;
 			idx++;
 		}
 		if (!set[idx])
-			break;
+			break ;
 		start++;
 	}
 	return (start);
@@ -48,17 +48,17 @@ static size_t	get_end(char const *s1, char const *set)
 		while (set[idx])
 		{
 			if (set[idx] == s1[ft_strlen(s1) - end - 1])
-				break;
+				break ;
 			idx++;
 		}
 		if (!set[idx])
-			break;
+			break ;
 		end++;
 	}
 	return (end);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char			*ft_strtrim(char const *s1, char const *set)
 {
 	char	*rslt;
 	size_t	start;
@@ -66,13 +66,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 
 	start = get_start(s1, set);
 	if (start == ft_strlen(s1))
-	{
-		rslt = (char *)malloc(1);
-		if (!rslt)
-			return (NULL);
-		rslt = ft_strdup("");
-		return (rslt);
-	}
+		return (ft_strdup(""));
 	end = get_end(s1, set);
 	rslt = (char *)malloc(ft_strlen(s1) - start - end + 1);
 	if (!rslt)
