@@ -5,9 +5,9 @@ void		ft_lstadd_back(t_list **lst, t_list *new)
 	t_list	*current;
 
 	current = *lst;
-	while (current)
+	while (current->next != 0)
 	{
-		current = current -> next;
+		current = current->next;
 	}
 	current->next = new;
 }

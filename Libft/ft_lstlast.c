@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 19:48:12 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/12 21:39:09 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/12 22:01:22 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ t_list		*ft_lstlast(t_list *lst)
 	{
 		current = current->next;
 	}
-	current = lst->next;
 	return (current);
 }
