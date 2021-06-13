@@ -6,7 +6,7 @@
 #    By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 18:24:09 by daelee            #+#    #+#              #
-#    Updated: 2021/06/13 18:39:16 by sungmcho         ###   ########.fr        #
+#    Updated: 2021/06/13 18:57:23 by sungmcho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,9 +58,9 @@ FILES_B =	ft_lstnew \
 		 	ft_lstlast \
 		 	ft_lstadd_back \
 		 	ft_lstdelone \
-		 	# ft_lstclear \
-		 	# ft_lstiter \
-		 	# ft_lstmap \
+		 	ft_lstclear \
+		 	ft_lstiter \
+		 	ft_lstmap \
 
 SRCS = $(addsuffix .c, $(FILES))
 SRCS_B = $(addsuffix .c, $(FILES_B))

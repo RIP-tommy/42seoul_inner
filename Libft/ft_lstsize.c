@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 19:47:28 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/12 20:40:31 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/13 19:01:30 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_lstsize(t_list *lst)
 	current = lst;
 	while (current)
 	{
-		current = current -> next;
+		current = current->next;
 		len++;
 	}
 	return (len);
