@@ -6,11 +6,10 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 20:11:53 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/12 19:28:07 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/13 18:18:27 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
 static	int	check_sign(char c)

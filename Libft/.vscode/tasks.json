@@ -6,8 +6,6 @@
             "command": "/usr/bin/gcc",
             "args": [
                 "-I/Users/sungmcho/inner/Libft",
-                "-g3",
-                "-fsanitize=address",
                 "-g",
                 "*.c",
                 "-o",

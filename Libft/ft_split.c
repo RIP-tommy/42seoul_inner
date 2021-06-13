@@ -6,12 +6,10 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:19:23 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/12 16:35:33 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/13 18:20:52 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stddef.h>
 #include "libft.h"
 
 static char		**ft_memfree(char **tab)

@@ -6,11 +6,10 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 12:01:29 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/12 16:12:25 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/13 18:21:15 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)

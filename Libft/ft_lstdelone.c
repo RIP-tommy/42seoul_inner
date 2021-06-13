@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 20:01:19 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/12 20:01:31 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/13 18:39:00 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/13 18:39:29 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 
 }

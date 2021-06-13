@@ -6,11 +6,10 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:52:09 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/12 21:15:44 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/13 18:21:31 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)

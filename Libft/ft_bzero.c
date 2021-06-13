@@ -6,11 +6,11 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 13:54:20 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/03 14:52:25 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/13 18:18:36 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void		ft_bzero(void *s, size_t n)
 {

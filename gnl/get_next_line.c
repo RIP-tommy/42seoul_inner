@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 15:01:58 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/11 17:31:12 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/13 17:22:31 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void			backup_buffer()
 
 int				get_next_line(int fd, char **line)
 {
-	char		buffer[BUFFER_SIZE];
-	char	*buffer_backup;
+	static char	buffer[BUFFER_SIZE];
+	char		*buffer_backup;
 
 	if (BUFFER_SIZE < 1)
 		return (-1);

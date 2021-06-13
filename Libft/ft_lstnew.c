@@ -6,12 +6,11 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 19:47:41 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/12 20:30:33 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/13 18:19:40 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 t_list		*ft_lstnew(void *content)
 {

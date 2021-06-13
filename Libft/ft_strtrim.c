@@ -6,12 +6,10 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:13:50 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/12 21:33:49 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/13 18:21:45 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
 #include "libft.h"
 
 static size_t	get_start(char const *s1, char const *set)

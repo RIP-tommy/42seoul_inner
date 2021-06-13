@@ -6,11 +6,10 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 21:12:02 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/02 21:32:51 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/13 18:21:01 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s1)

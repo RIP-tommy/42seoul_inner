@@ -6,12 +6,10 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:14:28 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/12 21:36:32 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/13 18:19:28 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stddef.h>
 #include "libft.h"
 
 static char	*print_min(void)
