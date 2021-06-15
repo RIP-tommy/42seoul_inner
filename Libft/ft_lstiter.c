@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 18:51:21 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/13 18:58:06 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/14 21:26:14 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (!lst)
 		return ;
-	while (lst->next)
+	while (lst)
 	{
 		f(lst->content);
 		lst = lst->next;

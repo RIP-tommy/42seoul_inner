@@ -6,21 +6,11 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:14:28 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/13 18:19:28 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/14 21:15:54 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char	*print_min(void)
-{
-	return (ft_strdup("-2147483648"));
-}
-
-static char	*print_zero(void)
-{
-	return (ft_strdup("0"));
-}
 
 static char	*print_negative(int n, int count, int power)
 {
@@ -84,9 +74,9 @@ char		*ft_itoa(int n)
 	sign = 1;
 	power = 1000000000;
 	if (n == -2147483648)
-		return (print_min());
+		return (ft_strdup("-2147483648"));
 	if (n == 0)
-		return (print_zero());
+		return (ft_strdup("0"));
 	if (n < 0)
 	{
 		n *= -1;
