@@ -5,16 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/03/09 18:24:09 by daelee            #+#    #+#              #
-#    Updated: 2021/06/13 18:57:23 by sungmcho         ###   ########.fr        #
+#    Created: 2021/06/16 15:35:16 by sungmcho          #+#    #+#              #
+#    Updated: 2021/06/16 16:00:00 by sungmcho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME = libft.a
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
+AR = ar -cr
 RM = rm -f
 
 FILES =		ft_memset \

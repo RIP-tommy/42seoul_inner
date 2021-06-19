@@ -6,13 +6,13 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 21:12:02 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/13 18:21:01 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/16 16:15:54 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char		*ft_strdup(const char *s1)
 {
 	size_t	idx;
 	char	*temp;

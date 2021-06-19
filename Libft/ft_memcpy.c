@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:20:42 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/13 18:20:11 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/17 11:26:21 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	idx = 0;
 	src_temp = (unsigned char *)src;
 	dst_temp = (unsigned char *)dst;
-	if (dst == NULL && src == NULL)
-		return (NULL);
 	while (idx < n)
 	{
 		dst_temp[idx] = src_temp[idx];

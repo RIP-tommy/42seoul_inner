@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 18:02:39 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/13 18:20:11 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/17 11:26:26 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void				*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char	*src_temp;
 	unsigned char	*dst_temp;
 
-	if (!dst && !src)
-		return (NULL);
 	idx = -1;
 	src_temp = (unsigned char *)src;
 	dst_temp = (unsigned char *)dst;

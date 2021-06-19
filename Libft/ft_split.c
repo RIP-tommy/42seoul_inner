@@ -6,13 +6,13 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:19:23 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/13 18:20:52 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/19 16:10:49 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		**ft_memfree(char **tab)
+static char			**ft_memfree(char **tab)
 {
 	unsigned int	i;
 
@@ -23,15 +23,14 @@ static char		**ft_memfree(char **tab)
 		i++;
 	}
 	free(tab);
-	tab = 0;
 	return (0);
 }
 
-static int		c_w(char const *s, char c)
+static int			c_w(char const *s, char c)
 {
-	int		counts;
-	int		word_in;
-	int		idx;
+	int				counts;
+	int				word_in;
+	int				idx;
 
 	counts = 0;
 	word_in = 0;
@@ -54,12 +53,12 @@ static int		c_w(char const *s, char c)
 	return (counts);
 }
 
-char			**ft_split(char const *s, char c)
+char				**ft_split(char const *s, char c)
 {
-	char	*break_point;
-	char	**rslt;
-	size_t	i;
-	size_t	len;
+	char			*break_point;
+	char			**rslt;
+	size_t			i;
+	size_t			len;
 
 	if (!(rslt = (char **)malloc(sizeof(char *) * (c_w(s, c) + 1))))
 		return (NULL);

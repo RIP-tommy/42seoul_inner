@@ -6,13 +6,13 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 21:27:14 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/13 18:21:35 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/16 16:16:33 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char		*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*temp;
 	size_t	idx;

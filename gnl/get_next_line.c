@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 15:01:58 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/13 17:22:31 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/17 13:13:54 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ int				get_next_line(int fd, char **line)
 {
 	static char	buffer[BUFFER_SIZE];
 	char		*buffer_backup;
+	char *temp = NULL;
 
 	if (BUFFER_SIZE < 1)
 		return (-1);
 	if (read(fd, buffer, BUFFER_SIZE) > 0)
 	{
+		if (temp[0])
+			return 0;
 		buffer_backup = (char *)malloc(ft_strlen(buffer_backup) + BUFFER_SIZE + 1);
 		// if (!buffer_backup)
 		// 	return (-1);
