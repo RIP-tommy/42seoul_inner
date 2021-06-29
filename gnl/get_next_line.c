@@ -5,26 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 15:01:58 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/24 18:49:48 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/29 22:31:32 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/29 22:35:12 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int				get_next_line(int fd, char **line)
+int			get_next_line(int fd, char **line)
 {
-    char    buffer[1024];
+	char	*temp;
+	int		rslt;
 
-    if (read(fd, buffer, 1024))
-    {
-
-
-    *line = buffer;
-
-    return (1);
-
-    }
-    else
-        return (0);
+	if (!(temp = (char *)malloc(BUFFER_SIZE)))
+		return (-1);
+	rslt = read(fd, temp, BUFFER_SIZE);
+	if (rslt > 0)
+	{
+		write(1, temp, BUFFER_SIZE);
+		return (1);
+	}
+	else if (rslt == 0)
+		return (0);
+	else
+		return (-1);
 }
