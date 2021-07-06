@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 static	char	*ft_strdup(const char *s1)
 {
@@ -30,37 +31,43 @@ static	char	*ft_strdup(const char *s1)
 	return (temp);
 }
 
-int	nl_idx(char *str)
+static int	nl_idx(char *str)
 {
-	int idx;
+	int index;
 
-	idx = 0;
-	while (str[idx] == '\n')
-		idx++;
-	return (idx);
+	index = 0;
+	while (str[index] != '\n')
+		index++;
+	return (index);
 }
 
 int	get_next_line(int fd, char **line)
 {
 	static char	*fds[OPEN_MAX];
 	char		buffer[BUFFER_SIZE + 1];
-	int			read_result;
 	char		*temp;
+	int			r_r;
 
-	read_result = read(fd, buffer, BUFFER_SIZE);
-	buffer[BUFFER_SIZE] = '\0';
-	if (read_result > 0)
-	{
-		temp = ft_strchr(buffer);
+	if (!fds[fd])
 		fds[fd] = ft_strdup("");
-		if (!temp)
-			fds[fd] = ft_strjoin(fds[fd], buffer, BUFFER_SIZE);
+	while (1)
+	{
+		r_r = read(fd, buffer, BUFFER_SIZE);
+		buffer[BUFFER_SIZE] = '\0';
+		if (r_r > 0 && (r_r < BUFFER_SIZE))
+			*line = ft_strjoin(fds[fd], buffer, r_r);
+		else if (r_r > 0 && ft_strchr(buffer) == 0)
+			fds[fd] = ft_strjoin(fds[fd], buffer, r_r);
+		else if (r_r > 0 && ft_strchr(buffer))
+		{
+			*line = ft_strjoin(fds[fd], buffer, nl_idx(buffer));
+			fds[fd] = ft_strdup(ft_strchr(buffer) + 1);
+			return (1);
+		}
+		else if (r_r == 0)
+			return (0);
 		else
-			*line = ft_strjoin(fds[fd], buffer, BUFFER_SIZE);
-		return (1);
+			break ;
 	}
-	else if (read_result == 0)
-		return (0);
-	else
-		return (-1);
+	return (-1);
 }
