@@ -14,7 +14,7 @@ int	main(int ac, char **av)
 	while ((temp = (get_next_line(fd, &line)) > 0))
 	{
 		printf("%s\n", line);
-//		free(line);
+		free(line);
 	}
 	printf("%s\n", line);
 	free(line);

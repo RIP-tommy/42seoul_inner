@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:36:55 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/29 18:37:59 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:37:52 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
-struct				s_list {
-	void			*content;
-	struct s_list	*next;
-}					t_list;
-
-int					get_next_line(int fd, char **line);
+int		get_next_line(int fd, char **line);
+char	*ft_strjoin(char *s1, char *s2, int len);
+size_t	ft_strlen(const char *src);
+char	*ft_strchr(char *str);
 
 #endif
