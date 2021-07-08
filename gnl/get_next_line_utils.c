@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 15:02:00 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/07/06 17:38:39 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/07/08 17:40:25 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,4 @@ char	*ft_strjoin(char *s1, char *s2, int len)
 	ft_strlcpy(rslt, s1, s1_len + 1);
 	ft_strlcat(rslt, s2, s1_len + len + 1);
 	return (rslt);
-}
-
-char	*ft_strchr(char *str)
-{
-	while (*str != '\0')
-	{
-		if (*str == '\n')
-			return (str);
-		++str;
-	}
-	return (0);
 }

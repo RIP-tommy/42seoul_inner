@@ -11,13 +11,13 @@ int	main(int ac, char **av)
 	char	*line;
 
 	fd = open(av[1], O_RDONLY);
-	while ((temp = (get_next_line(fd, &line)) > 0))
+	while (line = get_next_line(fd))
 	{
+		if (*line == NULL)
+			break;
 		printf("%s\n", line);
 		free(line);
 	}
-	printf("%s\n", line);
-	free(line);
 	close(fd);
 	return (0);
 }

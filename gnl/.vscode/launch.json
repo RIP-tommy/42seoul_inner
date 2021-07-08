@@ -9,7 +9,7 @@
       "type": "lldb",
       "request": "launch",
       "program": "${workspaceFolder}/main",
-      "args": [],
+      "args": ["line.txt"],
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "Build gnl_test"
     },

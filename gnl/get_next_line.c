@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 22:31:32 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/07/06 18:04:53 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/07/08 20:14:42 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,20 @@ static	char	*ft_strdup(const char *s1)
 	return (temp);
 }
 
+static char	*ft_strchr(char *str)
+{
+	while (*str != '\0')
+	{
+		if (*str == '\n')
+			return (str);
+		++str;
+	}
+	return (0);
+}
+
 static int	nl_idx(char *str)
 {
-	int index;
+	int	index;
 
 	index = 0;
 	while (str[index] != '\n')
@@ -41,7 +52,16 @@ static int	nl_idx(char *str)
 	return (index);
 }
 
-int	get_next_line(int fd, char **line)
+char	*ret_val(char **s1)
+{
+	char	*res;
+
+	res = ft_strjoin(ft_strdup(""), *s1, nl_idx(*s1));
+	*s1 = ft_strdup(ft_strchr(*s1) + 1);
+	return (res);
+}
+
+char	*get_next_line(int fd)
 {
 	static char	*fds[OPEN_MAX];
 	char		buffer[BUFFER_SIZE + 1];
@@ -50,24 +70,19 @@ int	get_next_line(int fd, char **line)
 
 	if (!fds[fd])
 		fds[fd] = ft_strdup("");
-	while (1)
+	if (ft_strchr(fds[fd]))
+		return (ret_val(&fds[fd]));
+	while (!ft_strchr(buffer))
 	{
 		r_r = read(fd, buffer, BUFFER_SIZE);
-		buffer[BUFFER_SIZE] = '\0';
-		if (r_r > 0 && (r_r < BUFFER_SIZE))
-			*line = ft_strjoin(fds[fd], buffer, r_r);
-		else if (r_r > 0 && ft_strchr(buffer) == 0)
-			fds[fd] = ft_strjoin(fds[fd], buffer, r_r);
-		else if (r_r > 0 && ft_strchr(buffer))
+		if (!r_r)
 		{
-			*line = ft_strjoin(fds[fd], buffer, nl_idx(buffer));
-			fds[fd] = ft_strdup(ft_strchr(buffer) + 1);
-			return (1);
+			temp = fds[fd];
+			fds[fd] = 0;
+			return (temp);
 		}
-		else if (r_r == 0)
-			return (0);
-		else
-			break ;
+		buffer[BUFFER_SIZE] = '\0';
+		fds[fd] = ft_strjoin(fds[fd], buffer, r_r);
 	}
-	return (-1);
+	return (ret_val(&fds[fd]));
 }
