@@ -59,7 +59,6 @@ char	*get_next_line(int fd)
 {
 	static char	*fds[OPEN_MAX];
 	char		buffer[BUFFER_SIZE + 1];
-	char		*tmp;
 	int			r_r;
 
 	if ((fd < 0) || (BUFFER_SIZE <= 0))

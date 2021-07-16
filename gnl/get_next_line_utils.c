@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *src)
 	size_t	length;
 
 	length = 0;
+	if (!src)
+		return (length);
 	while (src[length])
 		length++;
 	return (length);
@@ -72,6 +74,7 @@ char	*ft_strjoin(char *s1, char *s2, int len)
 	char	*rslt;
 	int		s1_len;
 
+	s1_len = (int)ft_strlen(s1);
 	if (!(s1) && !(s2))
 		return (NULL);
 	else if (!(s1) || !(s2))
@@ -81,7 +84,6 @@ char	*ft_strjoin(char *s1, char *s2, int len)
 		else
 			return (ft_strdup(s1, s1_len));
 	}
-	s1_len = (int)ft_strlen(s1);
 	rslt = (char *)malloc(s1_len + len + 1);
 	if (!rslt)
 		return (NULL);
@@ -100,7 +102,7 @@ char	*ft_strdup(const char *s1, int size)
 	temp = (char *)malloc(ft_strlen(s1) + 1);
 	if (!temp)
 		return (NULL);
-	while (s1[idx] && idx < size)
+	while (s1[idx] && (int)idx < size)
 	{
 		temp[idx] = s1[idx];
 		idx++;
