@@ -4,20 +4,22 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-int	main()
+int	main(void)
 {
 	int		fd;
 	char	*line;
 
 	line = 0;
 	fd = open("/Users/sm/inner/gnl/line", O_RDONLY);
-	while ((line = get_next_line(fd)))
+	while (1)
 	{
+		/* line = get_next_line(300); */
+		line = get_next_line(fd);
 		if (!line)
-        {
-            printf("line is NULL");
+		{
+			printf("line has a null value\n");
 			break ;
-        }
+		}
 		printf("%s", line);
 		free(line);
 	}

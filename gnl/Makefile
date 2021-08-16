@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
-DEFINE=-D BUFFER_SIZE=2
+DEFINE=-D BUFFER=2
 
 NAME=main
 
@@ -10,8 +10,11 @@ INC_DIR=/Users/sm/inner/gnl
 SRCS=get_next_line.c\
 get_next_line_utils.c
 
+B_SRCS=get_next_line_bonus.c\
+get_next_line_utils_bonus.c
+
 all: 
-	$(CC) -I$(INC_DIR) $(DEFINE) -o $(NAME) main.c $(SRCS)
+	$(CC) $(DEFINE) -o $(NAME) main.c $(SRCS)
 clean: 
 	rm $(name)
 fclean:
@@ -19,4 +22,6 @@ fclean:
 re:
 	make all
 debug:
-	$(CC) -g $(CFLAGS) -I$(INC_DIR) $(DEFINE) main.c $(SRCS) -o $(NAME) 
+	$(CC) -g $(CFLAGS) $(DEFINE) main.c $(SRCS) -o $(NAME) 
+bonus:
+	$(CC) $(CFLAGS) $(DEFINE) main.c $(B_SRCS) -o bonus_main 
