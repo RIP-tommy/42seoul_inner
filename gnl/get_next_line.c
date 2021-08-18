@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 22:31:32 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/07/15 20:55:36 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/08/17 01:19:29 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ static char	*ret_val(char **s1)
 		return (split_new_line(s1));
 	else
 	{
+		if (!**s1)
+		{
+			free(*s1);
+			return (0);
+		}
 		res = ft_strdup(*s1, ft_strlen(*s1));
 		free(*s1);
 		*s1 = 0;

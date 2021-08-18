@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
-DEFINE=-D BUFFER=2
+DEFINE=-D BUFFER=42
 
 NAME=main
 

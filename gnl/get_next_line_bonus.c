@@ -49,6 +49,11 @@ static char	*ret_val(char **s1)
 		return (split_new_line(s1));
 	else
 	{
+		if (!**s1)
+		{
+			free(*s1);
+			return (0);
+		}
 		res = ft_strdup(*s1, ft_strlen(*s1));
 		free(*s1);
 		*s1 = 0;
