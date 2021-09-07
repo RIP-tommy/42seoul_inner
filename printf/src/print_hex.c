@@ -12,7 +12,7 @@
 
 #include "../ft_printf.h"
 
-static void	print_dtoh(long n)
+static void	print_dtoh(long n, int capitals)
 {
 	char	c;
 
@@ -20,12 +20,15 @@ static void	print_dtoh(long n)
 		ft_putnbr_fd(n, 1);
 	else
 	{
-		c = 'a' + n - 10;
+		if (capitals)
+			c = 'A' + n - 10;
+		else
+			c = 'a' + n - 10;
 		ft_putchar_fd(c, 1);
 	}
 }
 
-static void	print(long n)
+static void	print(long n, int capitals)
 {
 	long	q;
 	long	r;
@@ -42,25 +45,25 @@ static void	print(long n)
 			r = q % 16;
 			q = q / 16;
 		}
-		print_dtoh(r);
+		print_dtoh(r, capitals);
 		k *= 16;
 	}
 }
 
-void	itoh(long n)
+void	itoh(long n, int capitals)
 {
 	if (n < 0)
 	{
 		ft_putchar_fd('-', 1);
 		n *= -1;
 	}
-	print(n);
+	print(n, capitals);
 }
 
-void	print_hex(va_list *args)
+void	print_hex(va_list *args, int capitals)
 {
 	long	c;
 
 	c = va_arg(*args, long);
-	itoh(c);
+	itoh(c, capitals);
 }

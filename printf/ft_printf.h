@@ -15,7 +15,6 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include "./Libft/libft.h"
 
 int		ft_printf(const char *format, ...);
 void	print_chr(va_list *args);
@@ -23,7 +22,11 @@ void	print_str(va_list *args);
 void	print_ptr(va_list *args);
 void	print_int(va_list *args);
 void	print_un(va_list *args);
-void	print_hex(va_list *args);
-void	itoh(long n);
+void	print_hex(va_list *args, int capitals);
+void	itoh(long n, int capitals);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(const char *s, int fd);
+size_t	ft_strlen(const char *src);
 
 #endif

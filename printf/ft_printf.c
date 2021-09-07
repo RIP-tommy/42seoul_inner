@@ -25,7 +25,9 @@ void	formatter(char c, va_list *args)
 	if (c == 'u')
 		print_un(args);
 	if (c == 'x')
-		print_hex(args);
+		print_hex(args, 0);
+	if (c == 'X')
+		print_hex(args, 1);
 	if (c == '%')
 		ft_putchar_fd(c, 1);
 }

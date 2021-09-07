@@ -1,6 +1,7 @@
 # NAME = libftprintf.a
 
 CC = gcc
+INC = /Users/sm/inner/printf
 # CFLAGS = -Wall -Wextra -Werror
 # AR = ar -cr
 # RM = rm -f
@@ -38,7 +39,7 @@ CC = gcc
 # .PHONY: bonus all clean fclean re
 
 all:
-	$(CC) main.c ft_printf.c ft_printf.h ./Libft/* ./src/*
+	$(CC) main.c ft_printf.c ft_printf.h ./utils/* ./src/*
 
 debug:
-	$(CC) -g main.c ft_printf.c ft_printf.h ./Libft/* ./src/*
+	$(CC) -I$(INC) -g main.c ft_printf.c  ./utils/* ./src/* -o main

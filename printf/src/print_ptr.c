@@ -6,5 +6,5 @@ void	print_ptr(va_list *args)
 
 	c = va_arg(*args, long);
 	ft_putstr_fd("0x", 1);
-	itoh(c);
+	itoh(c, 0);
 }

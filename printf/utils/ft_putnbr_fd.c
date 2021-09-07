@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "../ft_printf.h"
 
 static int	counter(int n, int power)
 {
@@ -44,7 +44,7 @@ static void	print(int n, int power, int count, int fd)
 	}
 }
 
-void		ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	int		power;
 	int		counts;
