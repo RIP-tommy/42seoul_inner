@@ -1,0 +1,31 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "debug ft_printf in m1 mac",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${workspaceFolder}/a.out",
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "preLaunchTask": "Build ft_printf"
+      },
+      {
+        "name": "debug ft_printf in cluster mac",
+        "type": "cppdbg",
+        "request": "launch",
+        "targetArchitecture": "x86_64",
+        "program": "${fileDirname}/a.out",
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "args": [],
+        "externalConsole": false,
+        "MIMode": "lldb",
+        "preLaunchTask": "Build ft_printf"
+      }
+    ]
+  }
