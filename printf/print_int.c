@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   print_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 16:12:22 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/08/25 16:41:40 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/08/25 18:36:59 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/09/09 20:10:49 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "./ft_printf.h"
 
-void	ft_putstr_fd(const char *s, int fd)
+void	print_int(va_list *args, int *res)
 {
-	size_t	len;
+	int	c;
 
-	len = ft_strlen(s);
-	write(fd, s, len);
+	c = va_arg(*args, int);
+	ft_putnbr_fd(c, res);
 }

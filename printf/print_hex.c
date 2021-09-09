@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 18:36:59 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/08/25 19:13:03 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/08/27 14:27:45 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/09/09 18:55:30 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "./ft_printf.h"
 
-void	print_int(va_list *args)
+void	print_hex(va_list *args, int capitals, int *res)
 {
-	int	c;
+	unsigned int	c;
 
-	c = va_arg(*args, int);
-	ft_putnbr_fd(c, 1);
+	c = va_arg(*args, unsigned int);
+	if (c == 0)
+		ft_putnbr_fd(0, res);
+	else
+		itoh(c, capitals, res);
 }

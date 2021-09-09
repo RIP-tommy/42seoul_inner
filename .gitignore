@@ -5,11 +5,12 @@ main
 main.dSYM
 42seoul
 
-venv
-
 Libft/libftTester
 Libft/Libftest
 Libft/libft-war-machine
 Libft/libft-unit-test
 
 gnl/gnlTester
+
+printf/printfTester
+printf/ft_printf_tester

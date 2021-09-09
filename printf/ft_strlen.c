@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_un.c                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 19:38:48 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/08/25 19:39:37 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/05/07 12:10:27 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/09/09 15:08:50 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "./ft_printf.h"
 
-void	print_un(va_list *args)
+size_t	ft_strlen(const char *src)
 {
-	unsigned int	c;
+	size_t	length;
 
-	c = va_arg(*args, unsigned int);
-	ft_putnbr_fd(c, 1);
+	if (!src)
+		return (0);
+	length = 0;
+	while (src[length])
+		length++;
+	return (length);
 }

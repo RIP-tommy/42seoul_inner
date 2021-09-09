@@ -8,7 +8,7 @@
         "name": "debug ft_printf in m1 mac",
         "type": "lldb",
         "request": "launch",
-        "program": "${workspaceFolder}/a.out",
+        "program": "${workspaceFolder}/main",
         "args": [],
         "cwd": "${workspaceFolder}",
         "preLaunchTask": "Build ft_printf"
@@ -18,7 +18,7 @@
         "type": "cppdbg",
         "request": "launch",
         "targetArchitecture": "x86_64",
-        "program": "${fileDirname}/a.out",
+        "program": "${fileDirname}/main",
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",
         "environment": [],
