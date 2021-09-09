@@ -1,45 +1,35 @@
-# NAME = libftprintf.a
+NAME		:= libftprintf.a
 
-CC = gcc
-INC = /Users/sm/inner/printf
-# CFLAGS = -Wall -Wextra -Werror
-# AR = ar -cr
-# RM = rm -f
+INC_DIR 	:= ./inc
+SRCS_DIR 	:= ./src
+BUILD_DIR 	:= ./build
 
-# FILES =		
+CC 			:= gcc
+CFLAGS		:= -Wall -Wextra -Werror
 
-# FILES_B =	
+AR			:= ar -cr
+RM			:= rm -rf
 
-# SRCS = $(addsuffix .c, $(FILES))
-# SRCS_B = $(addsuffix .c, $(FILES_B))
+SRCS		:= $(shell find $(SRCS_DIR) -name \*.c)
 
-# OBJS = $(addsuffix .o, $(FILES))
-# OBJS_B = $(addsuffix .o, $(FILES_B))
+FILES		:= $(notdir $(SRCS))
+OBJS		:= $(patsubst %.c,$(BUILD_DIR)/%.o,$(FILES))
 
+$(OBJS): $(SRCS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# .c.o: $(SRCS)
-# 	$(CC) $(CFLAGS) -c -o $@ $<
+$(NAME): $(OBJS)
+	$(AR) $@ $^
 
-# $(NAME): $(OBJS)
-# 	$(AR) $@ $^
+all: $(NAME)
 
-# bonus: $(OBJS_B)
-# 	$(AR) $(NAME) $^
+clean:
+	$(RM) $(BUILD_DIR)
+	mkdir -p $(BUILD_DIR)
 
-# all: $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
-# clean:
-# 	$(RM) $(OBJS) $(OBJS_B)
+re: clean all
 
-# fclean: clean
-# 	$(RM) $(NAME)
-
-# re: clean all
-
-# .PHONY: bonus all clean fclean re
-
-all:
-	$(CC) main.c ft_printf.c ft_printf.h ./utils/* ./src/*
-
-debug:
-	$(CC) -I$(INC) -g main.c ft_printf.c  ./utils/* ./src/* -o main
+.PHONY: all clean fclean re

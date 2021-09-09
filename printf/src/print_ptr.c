@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "../inc/ft_printf.h"
 
 void	print_ptr(va_list *args)
 {

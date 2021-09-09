@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 12:10:27 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/06/16 16:16:08 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/07 16:12:13 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/07 16:12:14 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../inc/ft_printf.h"
 
-size_t	ft_strlen(const char *src)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	length;
-
-	length = 0;
-	while (src[length])
-		length++;
-	return (length);
+	write(fd, &c, 1);
 }
