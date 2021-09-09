@@ -31,7 +31,7 @@ static void	print_dtoh(unsigned long long n, int capitals, int *res)
 static void	print(unsigned long long n, int capitals, int *res)
 {
 	unsigned long long	stored[17];
-	int			i;
+	int					i;
 
 	i = 0;
 	while (n != 0)

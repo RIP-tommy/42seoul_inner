@@ -14,7 +14,7 @@
 
 static int	counter(long long n, int power)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (n < (long long)power)
