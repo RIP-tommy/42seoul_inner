@@ -1,60 +1,39 @@
-NAMEi		= minitalk
+NAME		= minitalk
+
+FT_PRINTF	= libftprintf.a
 CC 			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 AR			= ar cr
 RM			= rm -f
 
-CFILES		= ./ft_printf/ft_printf.c \
-				./ft_printf/ft_putchar_fd.c \
-				./ft_printf/ft_putnbr_fd.c \
-				./ft_printf/ft_putstr_fd.c \
-				./ft_printf/ft_strlen.c \
-				./ft_printf/print_chr.c \
-				./ft_printf/print_hex.c \
-				./ft_printf/print_int.c \
-				./ft_printf/print_ptr.c \
-				./ft_printf/print_str.c \
-				./ft_printf/print_un.c \
-				./ft_printf/itoh.c \
-				main_client.c
+CFILES		= main_client.c
 
-SFILES		= ./ft_printf/ft_printf.c \
-				./ft_printf/ft_putchar_fd.c \
-				./ft_printf/ft_putnbr_fd.c \
-				./ft_printf/ft_putstr_fd.c \
-				./ft_printf/ft_strlen.c \
-				./ft_printf/print_chr.c \
-				./ft_printf/print_hex.c \
-				./ft_printf/print_int.c \
-				./ft_printf/print_ptr.c \
-				./ft_printf/print_str.c \
-				./ft_printf/print_un.c \
-				./ft_printf/itoh.c \
-				main_server.c
+SFILES		= main_server.c
 
 CSRCS = $(CFILES)
 COBJS = $(CSRCS:.c=.o)
 SSRCS = $(SFILES)
 SOBJS = $(SSRCS:.c=.o)
 
-%.o: %.c $(HEADER)
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(COBJS)
-	$(AR) $@ $^
+$(NAME): $(COBJS) $(SOBJS)
+	gcc $(COBJS) $(FT_PRINTF) -o client
+	gcc $(SOBJS) $(FT_PRINTF) -o server
 
 all: $(NAME)
 
 clean:
-	$(RM) $(COBJS)
+	$(RM) $(COBJS) $(SOBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) server client
 
 re: clean all
 
 .PHONY: all clean fclean re
 
-debug:
-	$(CC) -o client -g $(CSRCS)
-	$(CC) -o server -g $(SSRCS)
+debug: $(COBJS) $(SOBJS)
+	gcc -g $(COBJS) $(FT_PRINTF) -o client
+	gcc -g $(SOBJS) $(FT_PRINTF) -o server

@@ -1,6 +1,5 @@
 .DS_Store
 *.o
-*.a
 main
 main.dSYM
 a.out
