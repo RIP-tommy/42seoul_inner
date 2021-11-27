@@ -30,4 +30,4 @@ re: clean all
 .PHONY: all clean fclean re
 
 debug:
-	gcc main.c -o pipex
+	gcc -I/Users/sungmcho/inner/pipex main.c -o pipex
