@@ -1,26 +1,29 @@
 NAME		= pipex
 
 CC		= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 AR		= ar cr
 RM		= rm -f
 
+HLOC	= /Users/sungmcho/inner/pipex
+
 HEADER		= pipex.h
-CFILES		= main.c
+FILES		= main.c \
+			ft_split.c \
+			ft_strlcpy.c \
+			ft_strlen.c \
+			ft_strlcat.c \
+			ft_strncmp.c \
+			ft_strjoin.c
 
 SRCS = $(FILES)
-OBJS = $(SRCS:.c=.o)
 
-%.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(NAME): $(OBJS)
-	$(AR) $@ $^
-
-all: $(NAME)
+# all: $(NAME)
+all:
+	gcc $(CFLAGS) -I$(HLOC) $(SRCS) -o $(NAME)
 
 clean:
-	$(RM) $(COBJS) $(SOBJS)
+	$(RM) $(NAME)
 
 fclean: clean
 	$(RM) $(NAME)
@@ -30,4 +33,5 @@ re: clean all
 .PHONY: all clean fclean re
 
 debug:
-	gcc -I/Users/sungmcho/inner/pipex main.c -o pipex
+	gcc -I/Users/sungmcho/inner/pipex $(SRCS) -o $(NAME)
+	./pipex infile "cat" "wc -w" outfile
