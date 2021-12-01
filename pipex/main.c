@@ -6,25 +6,23 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:08:08 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/11/27 20:22:13 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/12/01 15:47:01 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-extern char	**environ;
-
-static char	*find_path(char *cmd)
+static char	*find_path(char *cmd, char *env[])
 {
 	char	*res;
 	int		i;
 	char	**path_env;
 
 	i = 0;
-	while (environ[i])
-		if (ft_strncmp(environ[i++], "PATH=", 5) == 0)
+	while (env[i])
+		if (ft_strncmp(env[i++], "PATH=", 5) == 0)
 			break ;
-	path_env = ft_split(ft_split(environ[--i], '=')[1], ':');
+	path_env = ft_split(ft_split(env[--i], '=')[1], ':');
 	while (*path_env)
 	{
 		res = ft_strjoin(*path_env, ft_strjoin("/", cmd));
@@ -40,7 +38,7 @@ static void	handle_error(void)
 	exit(1);
 }
 
-static void	child_process(int *read_fd, int *write_fd, char **arg)
+static void	child_process(int *read_fd, int *write_fd, char **arg, char *env[])
 {
 	int		file;
 	char	**cmd;
@@ -54,10 +52,10 @@ static void	child_process(int *read_fd, int *write_fd, char **arg)
 	dup2(file, STDIN_FILENO);
 	close(*write_fd);
 	close(file);
-	execve(find_path(cmd[0]), cmd, NULL);
+	execve(find_path(cmd[0], env), cmd, NULL);
 }
 
-static void	parent_process(int *read_fd, int *write_fd, char **arg)
+static void	parent_process(int *read_fd, int *write_fd, char **arg, char *env[])
 {
 	int		file;
 	char	**cmd;
@@ -69,10 +67,10 @@ static void	parent_process(int *read_fd, int *write_fd, char **arg)
 	dup2(file, STDOUT_FILENO);
 	close(*read_fd);
 	close(file);
-	execve(find_path(cmd[0]), ft_split(arg[3], ' '), NULL);
+	execve(find_path(cmd[0], env), ft_split(arg[3], ' '), NULL);
 }
 
-int	main(int argc, char *argv[])
+int	main(int argc, char *argv[], char *env[])
 {
 	pid_t	pid;
 	pid_t	wpid;
@@ -87,11 +85,11 @@ int	main(int argc, char *argv[])
 	if (pid == -1)
 		handle_error();
 	if (pid == 0)
-		child_process(&fd[0], &fd[1], argv);
+		child_process(&fd[0], &fd[1], argv, env);
 	else
 	{
 		waitpid(0, &status, 0);
-		parent_process(&fd[0], &fd[1], argv);
+		parent_process(&fd[0], &fd[1], argv, env);
 	}
 	if (pid && WIFEXITED(status))
 			wpid = WEXITSTATUS(status);

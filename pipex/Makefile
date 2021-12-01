@@ -16,11 +16,14 @@ FILES		= main.c \
 			ft_strncmp.c \
 			ft_strjoin.c
 
-SRCS = $(FILES)
+B_FILES		= main_bonus.c 
 
-# all: $(NAME)
+SRCS = $(FILES)
+B_SRCS = $(B_FILES)
+
 all:
 	gcc $(CFLAGS) -I$(HLOC) $(SRCS) -o $(NAME)
+	./pipex infile "cat" "wc -w" outfile
 
 clean:
 	$(RM) $(NAME)
@@ -32,6 +35,6 @@ re: clean all
 
 .PHONY: all clean fclean re
 
-debug:
-	gcc -I/Users/sungmcho/inner/pipex $(SRCS) -o $(NAME)
-	./pipex infile "cat" "wc -w" outfile
+bonus:
+	gcc $(CFLAGS) -I$(HLOC) $(B_SRCS) -o $(NAME)
+	./pipex infile "cat" | "grep a1" | "wc -w" outfile
