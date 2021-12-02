@@ -37,4 +37,4 @@ re: clean all
 
 bonus:
 	gcc $(CFLAGS) -I$(HLOC) $(B_SRCS) -o $(NAME)
-	./pipex infile "cat" | "grep a1" | "wc -w" outfile
+	./pipex infile "cat" "grep a1" "wc -w" outfile
