@@ -29,7 +29,7 @@ clean:
 	$(RM) $(NAME)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) outfile
 
 re: clean all
 
