@@ -11,10 +11,8 @@ typedef struct	s_vars {
 
 int	handle_exit(int keycode, t_vars *vars)
 {
-	int res;
-
-	if (keycode == 0x35)
-		exit(0);
+	mlx_destroy_window(vars->mlx, vars->win);
+	exit(1);
 	return (1);
 }
 
@@ -24,7 +22,7 @@ int main(int argc, char *argv[])
 
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, 640, 480, "fractalol");
-	mlx_key_hook(vars.win, handle_exit, vars.win);
+	mlx_hook(vars.win, 2, 1L<<0, handle_exit, &vars);
 	mlx_loop(vars.mlx);
 	return 0;
 }
