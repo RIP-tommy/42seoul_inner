@@ -2,7 +2,6 @@ NAME		= pipex
 
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
-AR		= ar cr
 RM		= rm -f
 
 HLOC	= /Users/sungmcho/inner/pipex
@@ -16,7 +15,13 @@ FILES		= main.c \
 			ft_strncmp.c \
 			ft_strjoin.c
 
-B_FILES		= main_bonus.c 
+B_FILES		= main_bonus.c \
+			ft_split.c \
+			ft_strlcpy.c \
+			ft_strlen.c \
+			ft_strlcat.c \
+			ft_strncmp.c \
+			ft_strjoin.c
 
 SRCS = $(FILES)
 B_SRCS = $(B_FILES)
@@ -35,6 +40,7 @@ re: clean all
 
 .PHONY: all clean fclean re
 
+	# gcc $(CFLAGS) -I$(HLOC) $(B_SRCS) -o $(NAME)
 bonus:
-	gcc $(CFLAGS) -I$(HLOC) $(B_SRCS) -o $(NAME)
+	gcc -I$(HLOC) $(B_SRCS) -o $(NAME)
 	./pipex infile "cat" "grep a1" "wc -w" outfile
