@@ -7,8 +7,8 @@
 #define		X_EVENT_KEY_EXIT		17
 #define		X_EVENT_MOUSE_PRESS		4
 #define		X_EVENT_MOUSE_MOTION	6
-#define		WIN_WIDTH				640
-#define		WIN_HEIGHT				480
+#define		WIN_WIDTH				800
+#define		WIN_HEIGHT				600
 #define		KEY_ESC					53
 #define		ITER_MAX				100
 
