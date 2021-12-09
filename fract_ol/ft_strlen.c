@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 16:13:45 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/12/09 16:15:47 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/05/07 12:10:27 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/12/09 15:01:43 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	mandelbrot(int count_w, int count_h, int iter)
+int	ft_strlen(char *src)
 {
-	double	c_re;
-	double	c_im;
-	double	x;
-	double	x_new;
-	double	y;
+	int	length;
 
-	c_re = ((count_w - WIN_WIDTH / 2) * 3.0 / WIN_WIDTH) - 0.5;
-	c_im = ((WIN_HEIGHT / 2) - count_h) * 2.0 / WIN_HEIGHT;
-	x = 0;
-	y = 0;
-	while ((pow(x, 2.0) + pow(y, 2.0) < 4) && (iter < ITER_MAX))
-	{
-		x_new = pow(x, 2.0) - pow(y, 2.0) + c_re;
-		y = 2 * x * y + c_im;
-		x = x_new;
-		iter++;
-	}
-	return (iter);
+	length = 0;
+	while (src[length])
+		length++;
+	return (length);
 }

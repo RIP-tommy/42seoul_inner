@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 16:13:45 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/12/09 16:15:47 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/02 17:34:30 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/12/09 15:14:50 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	mandelbrot(int count_w, int count_h, int iter)
+int	ft_strcmp(char *s1, char *s2)
 {
-	double	c_re;
-	double	c_im;
-	double	x;
-	double	x_new;
-	double	y;
-
-	c_re = ((count_w - WIN_WIDTH / 2) * 3.0 / WIN_WIDTH) - 0.5;
-	c_im = ((WIN_HEIGHT / 2) - count_h) * 2.0 / WIN_HEIGHT;
-	x = 0;
-	y = 0;
-	while ((pow(x, 2.0) + pow(y, 2.0) < 4) && (iter < ITER_MAX))
+	if (ft_strlen(s1) != ft_strlen(s2))
+		return (0);
+	while (*s1)
 	{
-		x_new = pow(x, 2.0) - pow(y, 2.0) + c_re;
-		y = 2 * x * y + c_im;
-		x = x_new;
-		iter++;
+		if (*s1++ == *s2++)
+			continue ;
+		else
+			return (0);
 	}
-	return (iter);
+	return (1);
 }
