@@ -77,6 +77,7 @@ int	main(int argc, char *argv[])
 	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win, mlx.img.img_ptr, 0, 0);
 	mlx_hook(mlx.win, X_EVENT_KEY_PRESS, 0, key_press, 0);
 	mlx_hook(mlx.win, X_EVENT_KEY_EXIT, 0, close, 0);
+	mlx_hook(mlx.win, 4, 1, handle_mouse_scroll, &frac);
 	mlx_loop(mlx.mlx_ptr);
 	return (0);
 }

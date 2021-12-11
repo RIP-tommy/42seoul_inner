@@ -1,10 +1,10 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "mlx.h"
+// # include "mlx.h"
+# include "minilibx_opengl_20191021/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
-# include <math.h>
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
@@ -37,5 +37,6 @@ int		ft_isdigit(int c);
 int		mandelbrot(int count_w, int count_h, int iter);
 int		julia(int count_w, int count_h, int iter, char *argv[]);
 void	put_pixel(t_img *img, int type, char *argv[]);
+int		handle_mouse_scroll(int keycode, int x, int y, t_frac_data *frac);
 
 #endif

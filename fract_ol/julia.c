@@ -24,9 +24,9 @@ int	julia(int count_w, int count_h, int iter, char *argv[])
 	c_im = ft_atod(argv[3]);
 	x = ((count_w - WIN_WIDTH / 2) * 4.0 / WIN_WIDTH);
 	y = ((WIN_HEIGHT / 2) - count_h) * 4.0 / WIN_HEIGHT;
-	while ((pow(x, 2.0) + pow(y, 2.0) < 4) && (iter < ITER_MAX))
+	while ((x * x + y * y < 4) && (iter < ITER_MAX))
 	{
-		x_new = pow(x, 2.0) - pow(y, 2.0) + c_re;
+		x_new = x * x - y * y + c_re;
 		y = 2 * x * y + c_im;
 		x = x_new;
 		iter++;
