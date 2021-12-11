@@ -15,9 +15,10 @@ SRCS	= main.c \
 		ft_strlen.c \
 		ft_atod.c \
 		ft_isdigit.c \
+		ft_min.c \
 		julia.c \
 		mandelbrot.c \
-		handle_mouse_scroll.c \
+		handle_interface.c \
 		process_pixcels.c
 
 OBJS = $(SRCS:.c=.o)

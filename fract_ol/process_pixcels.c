@@ -12,46 +12,56 @@
 
 #include "fractol.h"
 
-static void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = img->data + (x * img->bpp / 8) + (y * img->size_l);
+	dst = img->data_ptr + \
+	(y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
 
-static int	color_set(int iter)
+void	coloring_pixel(t_frac_data *frac, t_d_pair p, int i, int j)
 {
-	int	color;
+	int	val;
 
-	color = (255 - iter / 10) * 0x10000 + 10 * iter * 0x100 + 20 * (iter / 20);
-	return (color);
+	if (frac->f_flag == 1)
+	{
+		val = mandelbrot(p);
+		if (val != LOOP_LIMIT)
+			my_mlx_pixel_put(&frac->img, i, j, \
+			(255 - val / 10) * 0x10000 + 10 * val * 0x100 + 20 * (val / 20));
+		if (val == LOOP_LIMIT)
+			my_mlx_pixel_put(&frac->img, i, j, 0);
+	}
+	else if (frac->f_flag == 2)
+	{
+		val = julia(p, frac->julia_comp);
+		if (val != LOOP_LIMIT)
+			my_mlx_pixel_put(&frac->img, i, j, \
+			20 * (val / 16) * 0x10000 + 16 * val * 0x100 + (255 - val / 16));
+		if (val == LOOP_LIMIT)
+			my_mlx_pixel_put(&frac->img, i, j, 0);
+	}
 }
 
-void	put_pixel(t_img *img, int type, char *argv[])
+void	draw_frac(t_frac_data *frac)
 {
-	int	iter;
-	int	color;
-	int	count_w;
-	int	count_h;
+	int			i;
+	int			j;
+	t_d_pair	p;
 
-	count_h = -1;
-	while (++count_h <= WIN_HEIGHT)
+	i = 0;
+	while (i < WIDTH)
 	{
-		count_w = -1;
-		while (++count_w <= WIN_WIDTH)
+		j = 0;
+		while (j < LENGTH)
 		{
-			if (type == 1)
-				iter = mandelbrot(count_w, count_h, 0);
-			else
-				iter = julia(count_w, count_h, 0, argv);
-			if (iter < ITER_MAX)
-			{
-				color = color_set(iter);
-				my_mlx_pixel_put(img, count_w, count_h, color);
-			}
-			else
-				my_mlx_pixel_put(img, count_w, count_h, 0x00000000);
+			p.x = frac->center.x + (double)i / frac->pixel - frac->w_l.x / 2;
+			p.y = frac->center.y + (double)j / frac->pixel - frac->w_l.y / 2;
+			coloring_pixel(frac, p, i, j);
+			j++;
 		}
+		i++;
 	}
 }

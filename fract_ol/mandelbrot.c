@@ -12,24 +12,21 @@
 
 #include "fractol.h"
 
-int	mandelbrot(int count_w, int count_h, int iter)
+int	mandelbrot(t_d_pair p)
 {
-	double	c_re;
-	double	c_im;
-	double	x;
-	double	x_new;
-	double	y;
+	int			i;
+	t_d_pair	z;
+	double		t;
 
-	c_re = ((count_w - WIN_WIDTH / 2) * 3.0 / WIN_WIDTH) - 0.5;
-	c_im = ((WIN_HEIGHT / 2) - count_h) * 2.0 / WIN_HEIGHT;
-	x = 0;
-	y = 0;
-	while ((x * x + y * y < 4) && (iter < ITER_MAX))
+	i = 0;
+	z.x = p.x;
+	z.y = p.y;
+	while (z.x * z.x + z.y * z.y <= 4 && i < LOOP_LIMIT)
 	{
-		x_new = x * x - y * y + c_re;
-		y = 2 * x * y + c_im;
-		x = x_new;
-		iter++;
+		t = z.x * z.x - z.y * z.y + p.x;
+		z.y = 2 * z.x * z.y + p.y;
+		z.x = t;
+		i++;
 	}
-	return (iter);
+	return (i);
 }

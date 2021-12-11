@@ -12,24 +12,21 @@
 
 #include "fractol.h"
 
-int	julia(int count_w, int count_h, int iter, char *argv[])
+int	julia(t_d_pair p, t_d_pair j_p)
 {
-	double	c_re;
-	double	c_im;
-	double	x;
-	double	x_new;
-	double	y;
+	int			i;
+	t_d_pair	z;
+	double		t;
 
-	c_re = ft_atod(argv[2]);
-	c_im = ft_atod(argv[3]);
-	x = ((count_w - WIN_WIDTH / 2) * 4.0 / WIN_WIDTH);
-	y = ((WIN_HEIGHT / 2) - count_h) * 4.0 / WIN_HEIGHT;
-	while ((x * x + y * y < 4) && (iter < ITER_MAX))
+	i = 0;
+	z.x = p.x;
+	z.y = p.y;
+	while (z.x * z.x + z.y * z.y <= 4 && i < LOOP_LIMIT)
 	{
-		x_new = x * x - y * y + c_re;
-		y = 2 * x * y + c_im;
-		x = x_new;
-		iter++;
+		t = z.x * z.x - z.y * z.y + j_p.x;
+		z.y = 2 * z.x * z.y + j_p.y;
+		z.x = t;
+		i++;
 	}
-	return (iter);
+	return (i);
 }

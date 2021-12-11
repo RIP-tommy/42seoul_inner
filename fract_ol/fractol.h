@@ -5,50 +5,51 @@
 # include "minilibx_opengl_20191021/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
 
-# define WIN_WIDTH 800
-# define WIN_HEIGHT 600
-# define ITER_MAX 100
+# define WIDTH 800
+# define LENGTH 800
+# define LOOP_LIMIT 255
 # define ZOOM_RATE 1.2
 
-# define X_EVENT_KEY_EXIT 17
-# define X_EVENT_KEY_PRESS 2
-
-# define KEY_ESC 53
-
-typedef struct	coordinate{
+typedef struct s_d_pair
+{
 	double	x;
 	double	y;
-}				t_cord;
+}	t_d_pair;
 
-typedef struct s_img{
+typedef struct s_img
+{
 	void	*img_ptr;
-	char	*data;
-	int		size_l;
-	int		bpp;
+	char	*data_ptr;
+	int		bits_per_pixel;
+	int		line_length;
 	int		endian;
-}			t_img;
+}	t_img;
 
-typedef struct s_mlx{
-	void	*mlx_ptr;
-	void	*win;
+typedef struct s_frac_data
+{
+	int			f_flag;
 	double		pixel;
-	t_img	img;
-	t_cord	center;
-	t_cord	w_l;
-	t_cord	mouse;
-}			t_mlx;
+	void		*win;
+	void		*mlx;
+	t_img		img;
+	t_d_pair	center;
+	t_d_pair	w_l;
+	t_d_pair	julia_comp;
+	t_d_pair	mouse;
+}	t_frac_data;
 
-int		main(int argc, char *argv[]);
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 int		ft_strcmp(char *s1, char *s2);
-int		ft_strlen(char *src);
-double	ft_atod(char *str);
+int		ft_strlen(char *str);
 int		ft_isdigit(int c);
-int		mandelbrot(int count_w, int count_h, int iter);
-int		julia(int count_w, int count_h, int iter, char *argv[]);
-void	put_pixel(t_img *img, int type, char *argv[]);
-int		handle_mouse_scroll(int keycode, int x, int y, t_mlx *mlx);
-int		key_press(int keycode);
-int		close(int keycode);
+int		ft_min(int a, int b);
+double	ft_atod(char *str);
+int		mandelbrot(t_d_pair p);
+int		julia(t_d_pair p, t_d_pair j_p);
+int		press_esc(int keycode);
+int		press_wheel(int keycode, int x, int y, t_frac_data *frac);
+void	draw_frac(t_frac_data *frac);
 
 #endif

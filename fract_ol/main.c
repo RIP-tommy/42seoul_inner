@@ -12,50 +12,71 @@
 
 #include "fractol.h"
 
-static int	window_init(t_mlx *mlx)
+static t_d_pair	get_julia_para(int flag, char **argc)
 {
-	mlx->mlx_ptr = mlx_init();
-	if (!mlx->mlx_ptr)
+	t_d_pair	ret;
+
+	ret.x = 0;
+	ret.y = 0;
+	if (flag != 2)
+		return (ret);
+	ret.x = ft_atod(argc[2]);
+	ret.y = ft_atod(argc[3]);
+	return (ret);
+}
+
+static int	fract_ol_init(t_frac_data *frac, t_img *img, char **argv)
+{
+	frac->mlx = mlx_init();
+	frac->win = mlx_new_window(frac->mlx, WIDTH, LENGTH, "fract_ol");
+	img->img_ptr = mlx_new_image(frac->mlx, WIDTH, LENGTH);
+	img->data_ptr = mlx_get_data_addr(img->img_ptr, &img->bits_per_pixel, \
+	&img->line_length, &img->endian);
+	if (frac->mlx == 0 || frac->win == 0 || img->img_ptr == 0 || \
+	img->data_ptr == 0)
+	{
+		write(2, "mlx error\n", 11);
 		return (0);
-	mlx->win = mlx_new_window(mlx->mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "fractol");
-	if (!mlx->win)
-		return (0);
-	mlx->img.img_ptr = mlx_new_image(mlx->mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
-	if (!mlx->img.img_ptr)
-		return (0);
-	mlx->img.data = mlx_get_data_addr(mlx->img.img_ptr, \
-					&mlx->img.bpp, &mlx->img.size_l, &mlx->img.endian);
-	if (!mlx->img.data)
-		return (0);
+	}
+	frac->center.x = 0;
+	frac->center.y = 0;
+	frac->pixel = ft_min(WIDTH, LENGTH) / 4;
+	frac->w_l.x = WIDTH / frac->pixel;
+	frac->w_l.y = LENGTH / frac->pixel;
+	frac->julia_comp = get_julia_para(frac->f_flag, argv);
 	return (1);
 }
 
-static int	validate_type(int argc, char *type)
+static int	set_frac_flag(int argv, char **argc)
 {
-	if (argc < 2)
+	if ((argv != 2 && argv != 4) || \
+	(argv == 2 && !ft_strcmp(argc[1], "mandelbrot")) || \
+	(argv == 4 && !ft_strcmp(argc[1], "julia")))
+	{
+		printf("valid paramater : \"mandelbrot\"");
+		printf("or \"julia\", complex number\n");
+		printf("recommend : julia -0.7 -0.27015\n");
 		return (0);
-	if (argc == 2 && ft_strcmp(type, "mandelbrot"))
+	}
+	if (ft_strcmp(argc[1], "mandelbrot"))
 		return (1);
-	if (argc == 4 && ft_strcmp(type, "julia"))
+	else if (ft_strcmp(argc[1], "julia"))
 		return (2);
-	return (0);
+	else
+		return (3);
 }
 
 int	main(int argc, char *argv[])
 {
-	t_mlx	mlx;
-	int		type;
+	t_frac_data	frac;
 
-	type = validate_type(argc, argv[1]);
-	if (!type)
-		close(-1);
-	if (!window_init(&mlx))
+	frac.f_flag = set_frac_flag(argc, argv);
+	if (!fract_ol_init(&frac, &frac.img, argv) || !frac.f_flag)
 		return (0);
-	put_pixel(&mlx.img, type, argv);
-	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win, mlx.img.img_ptr, 0, 0);
-	mlx_hook(mlx.win, X_EVENT_KEY_PRESS, 0, key_press, 0);
-	mlx_hook(mlx.win, X_EVENT_KEY_EXIT, 0, close, 0);
-	mlx_hook(mlx.win, 4, 1, handle_mouse_scroll, &mlx);
-	mlx_loop(mlx.mlx_ptr);
+	draw_frac(&frac);
+	mlx_put_image_to_window(frac.mlx, frac.win, frac.img.img_ptr, 0, 0);
+	mlx_key_hook(frac.win, press_esc, 0);
+	mlx_hook(frac.win, 4, 1, press_wheel, &frac);
+	mlx_loop(frac.mlx);
 	return (0);
 }
