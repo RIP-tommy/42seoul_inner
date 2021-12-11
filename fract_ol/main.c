@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 16:15:23 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/12/09 19:23:44 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/12/11 23:37:45 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,6 @@ static int	window_init(t_mlx *mlx)
 	if (!mlx->img.data)
 		return (0);
 	return (1);
-}
-
-static int	key_press(int keycode)
-{
-	if (keycode == KEY_ESC)
-		exit(0);
-	else
-		return (0);
-	return (0);
-}
-
-static int	close(int keycode)
-{
-	if (keycode == X_EVENT_KEY_EXIT)
-		exit(EXIT_SUCCESS);
-	if (keycode == -1)
-	{	
-		printf("NOT ENOUGH PARAMATERS\n\n");
-		printf("INPUT A PARAMTER LIKE\n\nmandelbrot\njulia 0.27 -0.27\n");
-		exit(EXIT_SUCCESS);
-	}
-	return (0);
 }
 
 static int	validate_type(int argc, char *type)
@@ -77,7 +55,7 @@ int	main(int argc, char *argv[])
 	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win, mlx.img.img_ptr, 0, 0);
 	mlx_hook(mlx.win, X_EVENT_KEY_PRESS, 0, key_press, 0);
 	mlx_hook(mlx.win, X_EVENT_KEY_EXIT, 0, close, 0);
-	mlx_hook(mlx.win, 4, 1, handle_mouse_scroll, &frac);
+	mlx_hook(mlx.win, 4, 1, handle_mouse_scroll, &mlx);
 	mlx_loop(mlx.mlx_ptr);
 	return (0);
 }
