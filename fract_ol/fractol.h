@@ -44,7 +44,6 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 int		ft_strcmp(char *s1, char *s2);
 int		ft_strlen(char *str);
 int		ft_isdigit(int c);
-int		ft_min(int a, int b);
 double	ft_atod(char *str);
 int		mandelbrot(t_d_pair p);
 int		julia(t_d_pair p, t_d_pair j_p);

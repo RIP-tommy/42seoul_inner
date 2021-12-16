@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 16:15:23 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/12/11 23:37:45 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/12/16 23:35:23 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	fract_ol_init(t_frac_data *frac, t_img *img, char **argv)
 	}
 	frac->center.x = 0;
 	frac->center.y = 0;
-	frac->pixel = ft_min(WIDTH, LENGTH) / 4;
+	frac->pixel = WIDTH / 4;
 	frac->w_l.x = WIDTH / frac->pixel;
 	frac->w_l.y = LENGTH / frac->pixel;
 	frac->julia_comp = get_julia_para(frac->f_flag, argv);

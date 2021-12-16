@@ -15,7 +15,6 @@ SRCS	= main.c \
 		ft_strlen.c \
 		ft_atod.c \
 		ft_isdigit.c \
-		ft_min.c \
 		julia.c \
 		mandelbrot.c \
 		handle_interface.c \
