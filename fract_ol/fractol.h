@@ -6,11 +6,12 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <math.h>
 
 # define WIDTH 800
 # define LENGTH 800
 # define LOOP_LIMIT 255
-# define ZOOM_RATE 1.2
+# define ZOOM_RATE 1.5
 
 typedef struct s_d_pair
 {

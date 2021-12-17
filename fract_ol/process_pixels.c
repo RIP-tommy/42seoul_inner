@@ -26,23 +26,14 @@ void	coloring_pixel(t_frac_data *frac, t_d_pair p, int i, int j)
 	int	val;
 
 	if (frac->f_flag == 1)
-	{
 		val = mandelbrot(p);
-		if (val != LOOP_LIMIT)
-			my_mlx_pixel_put(&frac->img, i, j, \
-			(255 - val / 10) * 0x10000 + 10 * val * 0x100 + 20 * (val / 20));
-		if (val == LOOP_LIMIT)
-			my_mlx_pixel_put(&frac->img, i, j, 0);
-	}
-	else if (frac->f_flag == 2)
-	{
+	else
 		val = julia(p, frac->julia_comp);
-		if (val != LOOP_LIMIT)
-			my_mlx_pixel_put(&frac->img, i, j, \
-			20 * (val / 16) * 0x10000 + 16 * val * 0x100 + (255 - val / 16));
-		if (val == LOOP_LIMIT)
-			my_mlx_pixel_put(&frac->img, i, j, 0);
-	}
+	if (val != LOOP_LIMIT)
+		my_mlx_pixel_put(&frac->img, i, j, \
+			(255 - val) * 0x10000 + val * 0x100 + val);
+	if (val == LOOP_LIMIT)
+		my_mlx_pixel_put(&frac->img, i, j, 0);
 }
 
 void	draw_frac(t_frac_data *frac)

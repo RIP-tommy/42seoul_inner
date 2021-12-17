@@ -18,7 +18,7 @@ SRCS	= main.c \
 		julia.c \
 		mandelbrot.c \
 		handle_interface.c \
-		process_pixcels.c
+		process_pixels.c
 
 OBJS = $(SRCS:.c=.o)
 

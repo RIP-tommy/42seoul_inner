@@ -75,8 +75,8 @@ int	main(int argc, char *argv[])
 		return (0);
 	draw_frac(&frac);
 	mlx_put_image_to_window(frac.mlx, frac.win, frac.img.img_ptr, 0, 0);
-	mlx_key_hook(frac.win, press_esc, 0);
-	mlx_hook(frac.win, 4, 1, press_wheel, &frac);
+	mlx_key_hook(frac.win, &press_esc, 0);
+	mlx_mouse_hook(frac.win, &press_wheel, &frac);
 	mlx_loop(frac.mlx);
 	return (0);
 }

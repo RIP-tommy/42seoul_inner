@@ -15,8 +15,8 @@ int	press_wheel(int keycode, int x, int y, t_frac_data *frac)
 		frac->mouse.y = (double)y / frac->pixel - frac->w_l.y / 2;
 		if (keycode == 5)
 		{
-			frac->center.x += -frac->mouse.x * (ZOOM_RATE - 1);
-			frac->center.y += -frac->mouse.y * (ZOOM_RATE - 1);
+			frac->center.x -= frac->mouse.x * (ZOOM_RATE - 1);
+			frac->center.y -= frac->mouse.y * (ZOOM_RATE - 1);
 			frac->pixel /= ZOOM_RATE;
 			frac->w_l.x *= ZOOM_RATE;
 			frac->w_l.y *= ZOOM_RATE;
