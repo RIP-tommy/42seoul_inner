@@ -1,4 +1,4 @@
-NAME		= pushswap
+NAME		= push_swap
 
 CC			= gcc
 FLAGS		= -Wall -Werror
