@@ -53,22 +53,9 @@ FILES =		ft_memset \
 			ft_putendl_fd \
 			ft_putnbr_fd \
 
-FILES_B =	ft_lstnew \
-		  	ft_lstadd_front \
-		 	ft_lstsize \
-		 	ft_lstlast \
-		 	ft_lstadd_back \
-		 	ft_lstdelone \
-		 	ft_lstclear \
-		 	ft_lstiter \
-		 	ft_lstmap \
-
 SRCS = $(addsuffix .c, $(FILES))
-SRCS_B = $(addsuffix .c, $(FILES_B))
 
 OBJS = $(addsuffix .o, $(FILES))
-OBJS_B = $(addsuffix .o, $(FILES_B))
-
 
 .c.o: $(SRCS)
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -76,13 +63,10 @@ OBJS_B = $(addsuffix .o, $(FILES_B))
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
-bonus: $(OBJS_B)
-	$(AR) $(NAME) $^
-
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_B)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)

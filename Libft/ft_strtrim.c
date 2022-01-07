@@ -56,7 +56,7 @@ static size_t	get_end(char const *s1, char const *set)
 	return (end);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*rslt;
 	size_t	start;

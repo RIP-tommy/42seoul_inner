@@ -22,7 +22,7 @@ static	int	check_sign(char c)
 		return (0);
 }
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int		i;
 	int		sign;

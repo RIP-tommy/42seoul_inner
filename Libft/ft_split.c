@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char			**ft_memfree(char **tab)
+static char	**ft_memfree(char **tab)
 {
 	unsigned int	i;
 
@@ -26,7 +26,7 @@ static char			**ft_memfree(char **tab)
 	return (0);
 }
 
-static int			c_w(char const *s, char c)
+static int	c_w(char const *s, char c)
 {
 	int				counts;
 	int				word_in;
@@ -53,27 +53,27 @@ static int			c_w(char const *s, char c)
 	return (counts);
 }
 
-char				**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char			*break_point;
-	char			**rslt;
-	size_t			i;
-	size_t			len;
+	char const	*break_point;
+	char		**rslt;
+	size_t		i;
 
-	if (!(rslt = (char **)malloc(sizeof(char *) * (c_w(s, c) + 1))))
+	rslt = (char **)malloc(sizeof(char *) * (c_w(s, c) + 1));
+	if (!rslt)
 		return (NULL);
 	i = 0;
 	while (*s)
 	{
 		if (*s != c)
 		{
-			break_point = (char *)s;
+			break_point = s;
 			while (*s && *s != c)
 				++s;
-			len = s - break_point + 1;
-			if (!(rslt[i] = (char *)malloc(len)))
+			rslt[i] = (char *)malloc(s - break_point + 1);
+			if (!rslt[i])
 				return (ft_memfree(rslt));
-			ft_strlcpy(rslt[i++], break_point, len);
+			ft_strlcpy(rslt[i++], break_point, (size_t)(s - break_point + 1));
 		}
 		else
 			++s;

@@ -1,7 +1,21 @@
-#include <unistd.h>
+#include "pushswap.h"
 
-int	main(int argc, char *argv[])
+void parser(int ac, char **av, t_pushswap stacks)
 {
-	write(1, "Hello, World!\n", 14);
-	return (0);
+	stacks.stack_a = (int *)malloc(sizeof(int) * ac);
+	stacks.stack_b = (int *)malloc(sizeof(int) * ac);
+	
+}
+
+int	main(int ac, char **av)
+{
+	t_pushswap stacks;
+
+	if (ac < 2)
+		return (0);
+	else
+	{
+		parser(ac, av, stacks);
+		return (0);
+	}
 }

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int		counter(int n)
+static int	counter(int n)
 {
 	int			counts;
 	int			power;
@@ -32,7 +32,7 @@ static int		counter(int n)
 	return (counts);
 }
 
-static int		power_calculator(int n)
+static int	power_calculator(int n)
 {
 	int			power;
 
@@ -44,7 +44,7 @@ static int		power_calculator(int n)
 	return (power);
 }
 
-static char		*converter(int n, int counts, int power, int sign)
+static char	*converter(int n, int counts, int power, int sign)
 {
 	char		*rslt;
 	int			idx;
@@ -62,7 +62,7 @@ static char		*converter(int n, int counts, int power, int sign)
 		power /= 10;
 		idx++;
 	}
-	while (idx < 11 + sign - counts)
+	while (idx < 10 + sign - counts)
 	{
 		rslt[idx] = '0';
 		idx++;
@@ -71,7 +71,7 @@ static char		*converter(int n, int counts, int power, int sign)
 	return (rslt);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int			sign;
 	int			counts;
