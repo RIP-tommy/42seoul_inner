@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   r_operations.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sm <sm@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:24:31 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/09 21:28:33 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/11 11:56:38 by sm               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,17 @@ void	r_operation(t_stack *stack, int n)
 	if (n == 1)
 	{
 		ra(stack);
-		write(1, "ra\n", 4);
+		write(1, "ra\n", 3);
 	}
 	else if (n == 2)
 	{
 		rb(stack);
-		write(1, "rb\n", 4);
+		write(1, "rb\n", 3);
 	}
 	else
 	{
 		ra(stack);
 		rb(stack);
-		write(1, "rr\n", 4);
+		write(1, "rr\n", 3);
 	}
 }
