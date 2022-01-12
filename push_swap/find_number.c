@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:50:17 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/12 11:40:22 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/12 16:21:41 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	find_median(int *arr, int len)
 	}
 }
 
-int	find_max(int *arr, int len)
+int	find_max_idx(int *arr, int len)
 {
 	int	i;
 	int	j;
@@ -56,8 +56,7 @@ int	find_max(int *arr, int len)
 	}
 }
 
-int	find_min(int *arr, int len)
-
+int	find_min_idx(int *arr, int len)
 {
 	int	i;
 	int	j;

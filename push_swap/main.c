@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:24:08 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/12 12:38:24 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/12 15:27:26 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	main(int ac, char **av)
 	init_stack(s_ptr, ac, av);
 	if (!is_sorted_asc(stack.a_stack, stack.a_len) || \
 		!is_sorted_desc(stack.a_stack, stack.a_len))
-		sort(s_ptr);
+		push_swap(s_ptr);
 	free(stack.a_stack);
 	free(stack.b_stack);
 	return (0);

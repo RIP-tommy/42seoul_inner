@@ -17,14 +17,9 @@ FILES		= main \
 			r_operations \
 			rr_operations \
 			find_number \
-			sorting
+			push_swap
 
 SRCS = $(addsuffix .c, $(FILES))
-
-OBJS = $(addsuffix .o, $(FILES))
-
-.c.o: $(SRCS)
-	$(CC) $(CFLAGS) -c -o $@ $<
 
 all:
 	make -C $(LIBFT_DIR) all
@@ -32,14 +27,9 @@ all:
 
 clean:
 	make -C $(LIBFT_DIR) clean
-	$(RM) $(OBJS)
 
 fclean: clean
 	make -C $(LIBFT_DIR) fclean
 	$(RM) $(NAME)
 
 re: fclean all
-
-debug:
-	make -C $(LIBFT_DIR) all
-	$(CC) -g -o $(NAME) $(SRCS) -I$(CWD) -L$(LIBFT_DIR) -l$(LIBFT_NAME)
