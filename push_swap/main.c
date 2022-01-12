@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:24:08 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/11 10:40:54 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/12 10:51:16 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,15 +81,6 @@ static void	init_stack(t_stack *stack, int ac, char **av)
 	stack->a_stack[i] = '\0';
 	stack->b_stack[i] = '\0';
 	stack->sort_len = 0;
-}
-
-#include <stdio.h>
-
-void print_stack(t_stack *stack)
-{
-	for(int i = 0; i < stack->a_len; i++)
-		printf("%d ", stack->a_stack[i]);
-	printf("\n");
 }
 
 int	main(int ac, char **av)

@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_number.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/12 10:50:17 by sungmcho          #+#    #+#             */
+/*   Updated: 2022/01/12 11:40:22 by sungmcho         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 int	find_median(int *arr, int len)
 {
-	int i;
-	int j;
-	int cnt;
+	int	i;
+	int	j;
+	int	cnt;
 
 	i = 0;
 	while (i < len)
@@ -25,8 +37,8 @@ int	find_median(int *arr, int len)
 
 int	find_max(int *arr, int len)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < len)
@@ -47,8 +59,8 @@ int	find_max(int *arr, int len)
 int	find_min(int *arr, int len)
 
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < len)
