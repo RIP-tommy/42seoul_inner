@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:24:04 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/12 12:32:46 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/12 12:42:57 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,14 @@ static int	shrt_rt(t_stack *stack)
 
 	min = find_min(stack->b_stack, stack->b_len);
 	max = find_max(stack->b_stack, stack->b_len);
-	if (min != 0 && max != 0)
+	if (!max)
+		return (0);
+	else if (!min)
+	{
+		stack->min_sorted += 1;
+		return (1);
+	}
+	else
 	{
 		if (min > stack->b_len - min)
 		{
@@ -70,13 +77,6 @@ static int	shrt_rt(t_stack *stack)
 			return (0);
 		}
 	}
-	else
-	{
-		if (max == 0)
-			return (0);
-		else
-			return (1);
-	}
 }
 
 static void	pa_num(t_stack *stack, int iter)
@@ -92,10 +92,16 @@ static void	pa_num(t_stack *stack, int iter)
 		{
 			pa(stack);
 			r_operation(stack, 1);
+			stack->min_sorted += 1;
 		}
 		else
 			pa(stack);
 		stack->sort_len += 1;
+	}
+	while (stack->min_sorted)
+	{
+		rr_operation(stack, 1);
+		stack->min_sorted -= 1;
 	}
 	if (iter != 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:24:28 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/11 12:16:49 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/12 12:37:32 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stack {
 	int	*b_stack;
 	int	a_len;
 	int	b_len;
+	int	min_sorted;
 	int	sort_len;
 }	t_stack;
 

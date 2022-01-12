@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:24:08 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/12 10:51:16 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/12 12:38:24 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ static void	init_stack(t_stack *stack, int ac, char **av)
 	stack->a_stack[i] = '\0';
 	stack->b_stack[i] = '\0';
 	stack->sort_len = 0;
+	stack->min_sorted = 0;
 }
 
 int	main(int ac, char **av)
