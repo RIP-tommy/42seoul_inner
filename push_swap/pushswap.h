@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:24:28 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/11 10:06:04 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/11 12:16:49 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void	pb(t_stack *stack);
 void	r_operation(t_stack *stack, int n);
 void	rr_operation(t_stack *stack, int n);
 void	s_operation(t_stack *stack, int n);
+int		find_median(int *arr, int len);
+int		find_max(int *arr, int len);
+int		find_min(int *arr, int len);
 void	sort(t_stack *stack);
 
 #endif

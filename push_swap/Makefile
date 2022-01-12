@@ -16,6 +16,7 @@ FILES		= main \
 			p_operations \
 			r_operations \
 			rr_operations \
+			find_number \
 			sorting
 
 SRCS = $(addsuffix .c, $(FILES))
