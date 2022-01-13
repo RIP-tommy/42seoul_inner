@@ -1,34 +1,39 @@
 NAME		= minitalk
 
-FT_PRINTF	= libftprintf.a
 CC 			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 AR			= ar cr
 RM			= rm -f
 
-CFILES		= main_client.c
+PRINFT_NAME	= ftprintf
+PRINFT_LDIR	= $(shell pwd)/printf
+PRINFT_LIB	= -L$(PRINFT_LDIR) -l$(PRINFT_NAME)
 
-SFILES		= main_server.c
+CFILES		= main_client
 
-CSRCS = $(CFILES)
-COBJS = $(CSRCS:.c=.o)
-SSRCS = $(SFILES)
-SOBJS = $(SSRCS:.c=.o)
+SFILES		= main_server
+
+CSRCS = $(addsuffix .c, $(CFILES))
+COBJS = $(addsuffix .c, $(CFILES))
+SSRCS = $(addsuffix .c, $(SFILES))
+SOBJS = $(addsuffix .c, $(SFILES))
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(COBJS) $(SOBJS)
-	gcc $(COBJS) $(FT_PRINTF) -o client
-	gcc $(SOBJS) $(FT_PRINTF) -o server
+	make -C $(PRINFT_LDIR) all
+	gcc $(COBJS) $(PRINFT_LIB) -o client
+	gcc $(SOBJS) $(PRINFT_LIB) -o server
 
 all: $(NAME)
 
 clean:
+	make -C $(PRINFT_LDIR) clean
 	$(RM) $(COBJS) $(SOBJS)
 
 fclean: clean
-	$(RM) $(NAME) server client
+	$(RM) server client
 
 re: clean all
 

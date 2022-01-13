@@ -1,11 +1,11 @@
-#ifndef MINITALK_CLIENT_H
-# define MINITALK_CLIENT_H
+#ifndef MINITALK_SERVER_H
+# define MINITALK_SERVER_H
 
 #include <signal.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include "prinf/ft_printf.h"
 
-int	main();
+int	main(void);
 
 #endif
