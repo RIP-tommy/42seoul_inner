@@ -16,6 +16,9 @@ gnl/gnlTester
 printf/printfTester
 printf/ft_printf_tester
 
+minitalk/client/client
+minitalk/server/server
+
 pipex/pipex
 pipex/pipex-tester
 pipex/pipexMedic
