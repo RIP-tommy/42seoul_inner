@@ -20,13 +20,20 @@ FILES		= main \
 			push_swap
 
 SRCS = $(addsuffix .c, $(FILES))
+OBJS = $(addsuffix .o, $(FILES))
 
-all:
+%.o: %.c
 	make -C $(LIBFT_DIR) all
-	$(CC) -o $(NAME) $(SRCS) -I$(CWD) -L$(LIBFT_DIR) -l$(LIBFT_NAME)
+	$(CC) -c $< -o $@
+
+$(NAME): $(OBJS)
+	$(CC) -o $(NAME) $(OBJS) -I$(CWD) -L$(LIBFT_DIR) -l$(LIBFT_NAME)
+
+all: $(NAME)
 
 clean:
 	make -C $(LIBFT_DIR) clean
+	$(RM) $(OBJS)
 
 fclean: clean
 	make -C $(LIBFT_DIR) fclean

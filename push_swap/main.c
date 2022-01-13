@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:24:08 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/12 15:27:26 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/13 15:23:15 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	error_checker(int ac, char **av)
 
 	i = 1;
 	if (ac < 2)
-		exit_function();
+		exit(EXIT_FAILURE);
 	else
 	{
 		while (i < ac)

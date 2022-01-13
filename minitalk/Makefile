@@ -9,22 +9,23 @@ PRINFT_NAME	= ftprintf
 PRINFT_LDIR	= $(shell pwd)/printf
 PRINFT_LIB	= -L$(PRINFT_LDIR) -l$(PRINFT_NAME)
 
-CFILES		= main_client
+LIB			= $(shell pwd)/inc
+CFILES		= main
+SFILES		= main
 
-SFILES		= main_server
-
-CSRCS = $(addsuffix .c, $(CFILES))
-COBJS = $(addsuffix .c, $(CFILES))
-SSRCS = $(addsuffix .c, $(SFILES))
-SOBJS = $(addsuffix .c, $(SFILES))
+CSRCS = client/$(addsuffix .c, $(CFILES))
+COBJS = client/$(addsuffix .o, $(CFILES))
+SSRCS = server/$(addsuffix .c, $(SFILES))
+SOBJS = server/$(addsuffix .o, $(SFILES))
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	make -C $(PRINFT_LDIR) all
+	$(CC) -c $< -o $@
+# $(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(COBJS) $(SOBJS)
-	make -C $(PRINFT_LDIR) all
-	gcc $(COBJS) $(PRINFT_LIB) -o client
-	gcc $(SOBJS) $(PRINFT_LIB) -o server
+	gcc -o client/client $(COBJS) $(PRINFT_LIB) -I$(LIB)
+	gcc -o server/server $(SOBJS) $(PRINFT_LIB) -I$(LIB)
 
 all: $(NAME)
 
@@ -33,12 +34,12 @@ clean:
 	$(RM) $(COBJS) $(SOBJS)
 
 fclean: clean
-	$(RM) server client
+	$(RM) client/client server/server
 
 re: clean all
 
 .PHONY: all clean fclean re
 
 debug: $(COBJS) $(SOBJS)
-	gcc -g $(COBJS) $(FT_PRINTF) -o client
-	gcc -g $(SOBJS) $(FT_PRINTF) -o server
+	gcc -g -o client/client $(COBJS) $(PRINFT_LIB) -I(LIB)
+	gcc -g -o server/server $(SOBJS) $(PRINFT_LIB) -I(LIB)
