@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 18:36:59 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/09/09 20:10:49 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/02 20:31:11 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/02 20:31:21 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
-
-void	print_int(va_list *args, int *res)
+int	ft_tolower(int c)
 {
-	int	c;
-
-	c = va_arg(*args, int);
-	ft_putnbr_fd(c, res);
+	if (('A' <= c) && (c <= 'Z'))
+		return (c + 32);
+	else
+		return (c);
 }

@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_un.c                                         :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 19:38:48 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/09/09 20:10:53 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/05/14 13:54:20 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/13 18:18:36 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "libft.h"
 
-void	print_un(va_list *args, int *res)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned int	c;
+	size_t	i;
+	char	*temp;
 
-	c = va_arg(*args, unsigned int);
-	ft_putnbr_fd(c, res);
+	i = 0;
+	temp = (char *)s;
+	if (n == 0)
+		return ;
+	else
+	{
+		while (i < n)
+		{
+			temp[i] = 0;
+			i++;
+		}
+	}
+	s = temp;
 }

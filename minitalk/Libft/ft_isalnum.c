@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 16:12:13 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/09/09 15:24:47 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/02 17:43:40 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/17 11:04:09 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
-
-void	ft_putchar_fd(char c, int fd, int *res)
+int	ft_isalnum(int c)
 {
-	write(fd, &c, 1);
-	*res = *res + 1;
+	return ((('0' <= c) && (c <= '9'))
+		|| (('a' <= c) && (c <= 'z'))
+		|| (('A' <= c) && (c <= 'Z')));
 }

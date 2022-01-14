@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+         #
+#    By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:21:21 by sungmcho          #+#    #+#              #
-#    Updated: 2021/09/09 18:58:02 by sungmcho         ###   ########.fr        #
+#    Updated: 2022/01/14 16:56:51 by sungmcho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ AR			= ar cr
 RM			= rm -f
 HEADER		= ft_printf.h
 FILES		= ft_printf.c \
-				ft_putchar_fd.c \
-				ft_putnbr_fd.c \
-				ft_putstr_fd.c \
+				ft_printf_print_char.c \
+				ft_printf_print_nbr.c \
+				ft_printf_print_str.c \
 				ft_strlen.c \
 				print_chr.c \
 				print_hex.c \

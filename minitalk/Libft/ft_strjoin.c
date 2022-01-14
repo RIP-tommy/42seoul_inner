@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 18:36:59 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/14 16:56:15 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/03 15:08:45 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/13 18:21:07 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "libft.h"
 
-void	print_int(va_list *args, int *res)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	c;
+	char	*rslt;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	c = va_arg(*args, int);
-	ft_printf_print_nbr(c, res);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	rslt = (char *)malloc(s1_len + s2_len + 1);
+	if (!rslt)
+		return (NULL);
+	ft_strlcpy(rslt, s1, s1_len + 1);
+	ft_strlcat(rslt, s2, s1_len + s2_len + 1);
+	return (rslt);
 }

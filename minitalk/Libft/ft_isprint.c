@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hex.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/27 14:27:45 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/09/09 18:55:30 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/03 14:51:44 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/03 14:51:50 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
-
-void	print_hex(va_list *args, int capitals, int *res)
+int	ft_isprint(int c)
 {
-	unsigned int	c;
-
-	c = va_arg(*args, unsigned int);
-	if (c == 0)
-		ft_putnbr_fd(0, res);
-	else
-		itoh(c, capitals, res);
+	return ((32 <= c) && (c <= 126));
 }

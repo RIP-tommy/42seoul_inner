@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 18:36:59 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/14 16:56:15 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/12 15:43:01 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/13 18:21:23 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "libft.h"
 
-void	print_int(va_list *args, int *res)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	c;
+	char			*rslt;
+	unsigned int	idx;
 
-	c = va_arg(*args, int);
-	ft_printf_print_nbr(c, res);
+	rslt = (char *)malloc(ft_strlen(s) + 1);
+	if (!rslt)
+		return (0);
+	idx = 0;
+	ft_strlcpy(rslt, s, (ft_strlen(s) + 1));
+	while (rslt[idx])
+	{
+		rslt[idx] = f(idx, rslt[idx]);
+		idx++;
+	}
+	rslt[idx] = 0;
+	return (rslt);
 }

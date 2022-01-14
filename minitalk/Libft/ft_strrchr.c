@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 18:36:59 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/14 16:56:15 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/02 15:52:09 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/16 16:16:21 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "libft.h"
 
-void	print_int(va_list *args, int *res)
+char	*ft_strrchr(const char *s, int c)
 {
-	int	c;
+	size_t	idx;
+	char	*temp;
 
-	c = va_arg(*args, int);
-	ft_printf_print_nbr(c, res);
+	idx = ft_strlen(s);
+	temp = (char *)s;
+	if (!c)
+		return (temp + idx);
+	while (idx != (size_t)-1)
+	{
+		if (temp[idx] == (char)c)
+			return (temp + idx);
+		idx--;
+	}
+	return (NULL);
 }

@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 18:36:59 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/14 16:56:15 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/02 20:32:06 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/13 18:18:58 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "libft.h"
 
-void	print_int(va_list *args, int *res)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int	c;
+	void	*temp;
 
-	c = va_arg(*args, int);
-	ft_printf_print_nbr(c, res);
+	temp = malloc(size * count);
+	if (!temp)
+		return (NULL);
+	ft_bzero(temp, size * count);
+	return (temp);
 }

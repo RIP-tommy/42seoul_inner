@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 18:36:59 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/14 16:56:15 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/05/07 12:10:27 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/16 16:16:08 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "libft.h"
 
-void	print_int(va_list *args, int *res)
+size_t	ft_strlen(const char *src)
 {
-	int	c;
+	size_t	length;
 
-	c = va_arg(*args, int);
-	ft_printf_print_nbr(c, res);
+	length = 0;
+	while (src[length])
+		length++;
+	return (length);
 }

@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 18:36:59 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/14 16:56:15 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/02 14:18:56 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/13 18:20:11 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "libft.h"
 
-void	print_int(va_list *args, int *res)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	c;
+	size_t			idx;
+	unsigned char	*temp;
 
-	c = va_arg(*args, int);
-	ft_printf_print_nbr(c, res);
+	idx = 0;
+	temp = (unsigned char *)s;
+	while (idx < n)
+	{
+		if (temp[idx] == (unsigned char)c)
+			break ;
+		idx++;
+	}
+	if (idx == n)
+		return (NULL);
+	return (temp + idx);
 }

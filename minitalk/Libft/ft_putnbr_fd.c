@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:12:19 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/09/09 20:23:07 by sungmcho         ###   ########.fr       */
+/*   Updated: 2021/06/14 21:18:36 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include <unistd.h>
 
-static int	counter(long long n, int power)
+static int	counter(int n, int power)
 {
-	int	count;
+	int		count;
 
 	count = 0;
-	while (n < (long long)power)
+	while (n < power)
 	{
 		power /= 10;
 		count++;
@@ -25,45 +25,45 @@ static int	counter(long long n, int power)
 	return (count);
 }
 
-static void	print(long long n, int power, int count, int *res)
+static void	print(int n, int power, int count, int fd)
 {
 	char	temp;
 
 	while (n != 0)
 	{
 		temp = (n / power) + '0';
-		ft_putchar_fd(temp, 1, res);
+		write(fd, &(temp), 1);
 		n %= power;
 		power /= 10;
 		count--;
 	}
 	while (count != 0)
 	{
-		ft_putchar_fd('0', 1, res);
+		write(fd, "0", 1);
 		count--;
 	}
 }
 
-void	ft_putnbr_fd(long long n, int *res)
+void	ft_putnbr_fd(int n, int fd)
 {
 	int		power;
 	int		counts;
 
 	power = 1000000000;
 	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", 1, res);
+		write(fd, "-2147483648", 11);
 	else if (n == 0)
-		ft_putchar_fd('0', 1, res);
+		write(fd, "0", 1);
 	else
 	{
 		if (n < 0)
 		{
 			n *= -1;
-			ft_putchar_fd('-', 1, res);
+			write(fd, "-", 1);
 		}
 		counts = 10 - counter(n, power);
-		while (n < (long long)power)
+		while (n < power)
 			power /= 10;
-		print(n, power, counts, res);
+		print(n, power, counts, fd);
 	}
 }

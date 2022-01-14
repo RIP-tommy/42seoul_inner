@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 18:36:59 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/14 16:56:15 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/02 15:37:33 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/13 18:20:11 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "libft.h"
 
-void	print_int(va_list *args, int *res)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	c;
+	size_t			idx;
+	unsigned char	*s1_temp;
+	unsigned char	*s2_temp;
 
-	c = va_arg(*args, int);
-	ft_printf_print_nbr(c, res);
+	idx = 0;
+	s1_temp = (unsigned char *)s1;
+	s2_temp = (unsigned char *)s2;
+	while (idx < n)
+	{
+		if (s1_temp[idx] != s2_temp[idx])
+		{
+			return (s1_temp[idx] - s2_temp[idx]);
+			break ;
+		}
+		idx++;
+	}
+	return (0);
 }

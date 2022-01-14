@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_chr.c                                        :+:      :+:    :+:   */
+/*   ft_printf_print_char.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 18:27:09 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/09/09 15:20:34 by sungmcho         ###   ########.fr       */
+/*   Created: 2022/01/14 16:55:27 by sungmcho          #+#    #+#             */
+/*   Updated: 2022/01/14 16:58:15 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf.h"
 
-void	print_chr(va_list *args, int *res)
+void	ft_printf_print_char(char c, int fd, int *res)
 {
-	char	c;
-
-	c = va_arg(*args, int);
-	ft_putchar_fd(c, 1, res);
+	write(fd, &c, 1);
+	*res = *res + 1;
 }

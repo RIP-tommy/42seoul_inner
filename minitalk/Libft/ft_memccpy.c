@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 18:36:59 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/14 16:56:15 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/01 16:13:47 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/13 18:19:54 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "libft.h"
 
-void	print_int(va_list *args, int *res)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int	c;
+	size_t			idx;
+	unsigned char	*dst_temp;
+	unsigned char	*src_temp;
 
-	c = va_arg(*args, int);
-	ft_printf_print_nbr(c, res);
+	idx = 0;
+	dst_temp = (unsigned char *)dst;
+	src_temp = (unsigned char *)src;
+	while (idx < n)
+	{	
+		dst_temp[idx] = src_temp[idx];
+		if (src_temp[idx] == (unsigned char)c)
+			break ;
+		idx++;
+	}
+	if (idx != n)
+		return (dst_temp + idx + 1);
+	return (NULL);
 }

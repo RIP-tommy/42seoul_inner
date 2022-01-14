@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_str.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/09 14:21:26 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/09/09 15:21:02 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/06/07 16:12:22 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/16 16:17:03 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include <unistd.h>
+#include "libft.h"
 
-void	print_str(va_list *args, int *res)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*c;
+	size_t	len;
 
-	c = va_arg(*args, char *);
-	ft_putstr_fd(c, 1, res);
+	len = ft_strlen(s);
+	write(fd, s, len);
 }

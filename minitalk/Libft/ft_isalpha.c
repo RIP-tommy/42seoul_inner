@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 18:36:59 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/14 16:56:15 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/05/06 20:28:49 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/05/06 20:49:56 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
-
-void	print_int(va_list *args, int *res)
+int	ft_isalpha(int c)
 {
-	int	c;
-
-	c = va_arg(*args, int);
-	ft_printf_print_nbr(c, res);
+	return ((('A' <= c) && (c <= 'Z')) || (('a' <= c) && (c <= 'z')));
 }

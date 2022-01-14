@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 13:34:55 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/09/09 18:34:11 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/14 16:55:22 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	formatter(char c, va_list *args, int *res)
 	if (c == 'X')
 		print_hex(args, 1, res);
 	if (c == '%')
-		ft_putchar_fd(c, 1, res);
+		ft_printf_print_char(c, 1, res);
 }
 
 int	ft_printf(const char *str, ...)
@@ -49,7 +49,7 @@ int	ft_printf(const char *str, ...)
 			formatter(*str, ptr, &res);
 		}
 		else
-			ft_putchar_fd(*str, 1, &res);
+			ft_printf_print_char(*str, 1, &res);
 		str++;
 	}
 	va_end(args);

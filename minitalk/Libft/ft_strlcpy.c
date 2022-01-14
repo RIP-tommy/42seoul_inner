@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_ptr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/09 14:21:17 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/13 14:48:15 by sungmcho         ###   ########.fr       */
+/*   Created: 2021/05/07 12:01:29 by sungmcho          #+#    #+#             */
+/*   Updated: 2021/06/16 16:16:01 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "libft.h"
 
-void	print_ptr(va_list *args, int *res)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	void	*c;
+	size_t	index;
+	char	*dst_temp;
+	char	*src_temp;
 
-	c = va_arg(*args, void *);
-	ft_putstr_fd("0x", 1, res);	
-	if (!c)
-		ft_putstr_fd("0", 1, res);
-	else
-		itoh((unsigned long long)c, 0, res);
+	if (!dstsize)
+		return (ft_strlen(src));
+	index = 0;
+	dst_temp = (char *)dst;
+	src_temp = (char *)src;
+	while (index + 1 < dstsize && src[index])
+	{
+		dst_temp[index] = src_temp[index];
+		index++;
+	}
+	dst_temp[index] = '\0';
+	return (ft_strlen(src));
 }

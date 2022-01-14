@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_un.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 19:38:48 by sungmcho          #+#    #+#             */
-/*   Updated: 2021/09/09 20:10:53 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/14 16:56:15 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void	print_un(va_list *args, int *res)
 	unsigned int	c;
 
 	c = va_arg(*args, unsigned int);
-	ft_putnbr_fd(c, res);
+	ft_printf_print_nbr(c, res);
 }
