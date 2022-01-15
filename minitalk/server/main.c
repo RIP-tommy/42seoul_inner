@@ -1,28 +1,48 @@
 #include "../inc/server.h"
 
-void f(int signum)
+void	f(int signum, int *bit, int *cnt)
 {
-	ft_printf("Recieved a frog!\n");
-	ft_printf("%d, Recieved a frog!\n", signum);
+	char	c;
+	int		sign;
+
+	if (*cnt % 8 != 0)
+	{
+		c = *bit;
+		c = c * 2;
+		cnt += 1;
+	}
+	else
+	{
+		ft_printf("%c",c);
+		c = 0;
+		c = c * 2;
+		cnt += 1;
+	}
 }
 
-void g(int signum)
+void	g(int signum)
 {
-	ft_printf("Recieved a giraffe!\n");
-	ft_printf("%d, Recieved a giraffe!\n", signum);
 	exit(SIGUSR2);
 }
 
 int	main(void)
 {
-	char	*s1;
+	char	c;
 
 	ft_printf("%d\n", getpid());
-
-	if (signal(SIGUSR1, f) == SIG_ERR)
-		ft_printf("can't catch SIGUSR1\n");
-	if (signal(SIGUSR2, g) == SIG_ERR)
-		ft_printf("cant't catch SIGUSR2\n");
-	while(1) ;
+	c = 0;
+	while (1)
+	{
+		if (signal(SIGUSR1, f) == SIG_ERR)
+		{
+			ft_printf("can't catch SIGUSR1\n");
+			exit(EXIT_FAILURE);
+		}
+		if (signal(SIGUSR2, g) == SIG_ERR)
+		{
+			ft_printf("cant't catch SIGUSR2\n");
+			exit(EXIT_FAILURE);
+		}
+	}
 	return (0);
 }
