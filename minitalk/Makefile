@@ -14,7 +14,7 @@ LIBFT_LDIR	= $(shell pwd)/Libft
 LIBFT_LIB	= -L$(LIBFT_LDIR) -l$(LIBFT_NAME)
 
 LIB			= $(shell pwd)/inc
-CFILES		= main
+CFILES		= main 
 SFILES		= main
 
 CSRCS = client/$(addsuffix .c, $(CFILES))
@@ -25,8 +25,7 @@ SOBJS = server/$(addsuffix .o, $(SFILES))
 %.o: %.c
 	make -C $(PRINFT_LDIR) all
 	make -C $(LIBFT_LDIR) all
-	$(CC) -c $< -o $@
-# $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(COBJS) $(SOBJS)
 	gcc -o client/client $(COBJS) $(PRINFT_LIB) $(LIBFT_LIB) -I$(LIB)
@@ -47,3 +46,9 @@ fclean: clean
 re: clean all
 
 .PHONY: all clean fclean re
+
+debug: $(DNAME)
+	make -C $(PRINFT_LDIR) all
+	make -C $(LIBFT_LDIR) all
+	gcc -g -o client/client $(CSRCS) $(PRINFT_LIB) $(LIBFT_LIB) -I$(LIB)
+	gcc -g -o server/server $(SSRCS) $(PRINFT_LIB) $(LIBFT_LIB) -I$(LIB)

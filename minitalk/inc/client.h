@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <errno.h>
 
-int	main(int ac, char **av);
+int		main(int ac, char **av);
+void	send_msg(int pid, char *s);
 
 #endif

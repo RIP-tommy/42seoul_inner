@@ -1,48 +1,56 @@
 #include "../inc/server.h"
 
-void	f(int signum, int *bit, int *cnt)
-{
-	char	c;
-	int		sign;
+t_msg_data	g_data;
 
-	if (*cnt % 8 != 0)
-	{
-		c = *bit;
-		c = c * 2;
-		cnt += 1;
-	}
-	else
-	{
-		ft_printf("%c",c);
-		c = 0;
-		c = c * 2;
-		cnt += 1;
-	}
-}
-
-void	g(int signum)
+void	f(int signum, siginfo_t *info, void *context)
 {
-	exit(SIGUSR2);
+	if (info == 0)
+		exit(EXIT_FAILURE);
+	if (context == 0)
+		exit(EXIT_FAILURE);
+	if (signum == SIGUSR1)
+	{
+		g_data.c = g_data.c*2 + 1;
+		g_data.cnt += 1;
+	}
+    else if (signum == SIGUSR2)
+	{
+		g_data.c = g_data.c*2;
+		g_data.cnt += 1;
+	}
+	if (g_data.cnt == 8 && g_data.c == 0)
+	{
+		write(1, "\n", 1);
+		exit(EXIT_SUCCESS);
+	}
+	if (g_data.cnt == 8)
+	{
+		g_data.cnt = 0;
+		write(1, &g_data.c, 1);
+		g_data.c = 0;
+	}
 }
 
 int	main(void)
 {
-	char	c;
+	struct sigaction act;
 
 	ft_printf("%d\n", getpid());
-	c = 0;
-	while (1)
+	act.sa_sigaction = f;
+	act.sa_flags = SA_SIGINFO;
+	g_data.c = 0;
+	g_data.cnt = 0;
+	if (sigaction(SIGUSR1, &act, NULL) != 0)
 	{
-		if (signal(SIGUSR1, f) == SIG_ERR)
-		{
-			ft_printf("can't catch SIGUSR1\n");
-			exit(EXIT_FAILURE);
-		}
-		if (signal(SIGUSR2, g) == SIG_ERR)
-		{
-			ft_printf("cant't catch SIGUSR2\n");
-			exit(EXIT_FAILURE);
-		}
+		ft_printf("can't catch SIGUSR1\n");
+		exit(EXIT_FAILURE);
 	}
+	if (sigaction(SIGUSR2, &act, NULL) != 0)
+	{
+		ft_printf("cant't catch SIGUSR2\n");
+		exit(EXIT_FAILURE);
+	}
+	while (1)
+		;
 	return (0);
 }

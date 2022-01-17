@@ -10,6 +10,11 @@
 #include <stdlib.h>
 #include <errno.h>
 
+typedef struct s_msg_data {
+    char    c;
+    int     cnt;
+}   t_msg_data;
+
 int	main(void);
 
 #endif
