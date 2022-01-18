@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/18 22:45:51 by sungmcho          #+#    #+#             */
+/*   Updated: 2022/01/18 22:48:08 by sungmcho         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/client.h"
 
 static void	send_zero(int pid)
@@ -49,11 +61,11 @@ static void	bit_converter(int pid, char c)
 			send_zero(pid);
 		else
 			send_one(pid);
-		usleep(1000);
+		usleep(125);
 	}
 }
 
-void	send_msg(int pid, char *s)
+static void	send_msg(int pid, char *s)
 {
 	int	i;
 
