@@ -33,6 +33,7 @@ int	find_median(int *arr, int len)
 			return (arr[i]);
 		i += 1;
 	}
+	return (i);
 }
 
 int	find_max_idx(int *arr, int len)
@@ -54,6 +55,7 @@ int	find_max_idx(int *arr, int len)
 			return (i);
 		i += 1;
 	}
+	return (i);
 }
 
 int	find_min_idx(int *arr, int len)
@@ -75,4 +77,5 @@ int	find_min_idx(int *arr, int len)
 			return (i);
 		i += 1;
 	}
+	return (i);
 }

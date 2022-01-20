@@ -3,87 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 22:45:51 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/18 22:48:08 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/20 13:11:52 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/client.h"
 
-static void	send_zero(int pid)
+static void	handler(int signo)
 {
-	if (kill(pid, SIGUSR2) == -1)
-	{
-		if (errno == EPERM)
-			ft_printf("Process exists, but we don't have "
-				"permission to send it a signal\n");
-		else if (errno == ESRCH)
-			ft_printf("Process does not exist\n");
-		else
-			ft_printf("kill");
-		exit(EXIT_FAILURE);
-	}
-}
-
-static void	send_one(int pid)
-{
-	if (kill(pid, SIGUSR1) == -1)
-	{
-		if (errno == EPERM)
-			ft_printf("Process exists, but we don't have "
-				"permission to send it a signal\n");
-		else if (errno == ESRCH)
-			ft_printf("Process does not exist\n");
-		else
-			ft_printf("kill");
-		exit(EXIT_FAILURE);
-	}
-}
-
-static void	bit_converter(int pid, char c)
-{
-	int	res[8];
-	int	i;
-
-	ft_memset(res, 0, sizeof(int) * 8);
-	i = 0;
-	while (i != 8)
-	{
-		res[i] = c % 2;
-		c /= 2;
-		i += 1;
-	}
-	while (--i > -1)
-	{
-		if (!res[i])
-			send_zero(pid);
-		else
-			send_one(pid);
-		usleep(125);
-	}
-}
-
-static void	send_msg(int pid, char *s)
-{
-	int	i;
-
-	i = 8;
-	while (*s)
-	{
-		bit_converter(pid, *s);
-		s += 1;
-	}
-	while (i--)
-	{
-		send_zero(pid);
-		usleep(1000);
-	}
+	write(1, "ACK\n", 4);
+	(void)signo;
+	exit(0);
 }
 
 int	main(int ac, char **av)
 {
+	signal(SIGUSR1, handler);
+	ft_printf("%d\n", getpid());
 	if (ac < 3)
 	{
 		if (ac < 2)
@@ -103,5 +42,6 @@ int	main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	send_msg(ft_atoi(av[1]), av[2]);
+	pause();
 	return (EXIT_SUCCESS);
 }

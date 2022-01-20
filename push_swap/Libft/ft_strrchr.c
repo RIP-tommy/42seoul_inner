@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 	temp = (char *)s;
 	if (!c)
 		return (temp + idx);
-	while (idx != (size_t)-1)
+	while (idx != (size_t)(-1))
 	{
 		if (temp[idx] == (char)c)
 			return (temp + idx);

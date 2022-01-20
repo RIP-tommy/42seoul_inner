@@ -15,26 +15,30 @@
 static void	ra(t_stack *stack)
 {
 	int	fst_el;
-	int	temp;
 	int	i;
 
 	i = 0;
 	fst_el = stack->a_stack[0];
 	while (i < stack->a_len - 1)
-		stack->a_stack[i++] = stack->a_stack[i + 1];
+	{
+		stack->a_stack[i] = stack->a_stack[i + 1];
+		i += 1;
+	}
 	stack->a_stack[stack->a_len - 1] = fst_el;
 }
 
 static void	rb(t_stack *stack)
 {
 	int	fst_el;
-	int	temp;
 	int	i;
 
 	i = 0;
 	fst_el = stack->b_stack[0];
 	while (i < stack->b_len - 1)
-		stack->b_stack[i++] = stack->b_stack[i + 1];
+	{
+		stack->b_stack[i] = stack->b_stack[i + 1];
+		 i += 1;
+	}
 	stack->b_stack[stack->b_len - 1] = fst_el;
 }
 

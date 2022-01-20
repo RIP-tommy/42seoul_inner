@@ -1,7 +1,7 @@
 NAME		= push_swap
 
 CC			= gcc
-FLAGS		= -Wall -Werror
+FLAGS		= -Wall -Wextra -Werror
 RM			= rm -rf
 CWD			= $(shell pwd)
 
@@ -24,10 +24,10 @@ OBJS = $(addsuffix .o, $(FILES))
 
 %.o: %.c
 	make -C $(LIBFT_DIR) all
-	$(CC) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) -I$(CWD) -L$(LIBFT_DIR) -l$(LIBFT_NAME)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJS) -I$(CWD) -L$(LIBFT_DIR) -l$(LIBFT_NAME)
 
 all: $(NAME)
 

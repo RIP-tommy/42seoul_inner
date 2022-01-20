@@ -15,7 +15,6 @@
 static void	rra(t_stack *stack)
 {
 	int	lst_el;
-	int	temp;
 	int	i;
 
 	i = stack->a_len - 1;
@@ -31,7 +30,6 @@ static void	rra(t_stack *stack)
 static void	rrb(t_stack *stack)
 {
 	int	lst_el;
-	int	temp;
 	int	i;
 
 	i = stack->b_len - 1;

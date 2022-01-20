@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 22:45:56 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/18 22:46:44 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/20 13:13:28 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 t_msg_data	g_data;
 
-void	f(int signum, siginfo_t *info, void *context)
+static void	printer(int signum)
 {
-	if (info == 0)
-		exit(EXIT_FAILURE);
-	if (context == 0)
-		exit(EXIT_FAILURE);
 	if (signum == SIGUSR1)
 	{
 		g_data.c = g_data.c * 2 + 1;
@@ -32,8 +28,12 @@ void	f(int signum, siginfo_t *info, void *context)
 	}
 	if (g_data.cnt == 8 && g_data.c == 0)
 	{
+		g_data.cnt = 0;
+		ft_printf("end %d", g_data.pid);
 		write(1, "\n", 1);
-		exit(EXIT_SUCCESS);
+		usleep(80);
+		kill(g_data.pid, SIGUSR1);
+		g_data.pid = 0;
 	}
 	if (g_data.cnt == 8)
 	{
@@ -41,6 +41,17 @@ void	f(int signum, siginfo_t *info, void *context)
 		write(1, &g_data.c, 1);
 		g_data.c = 0;
 	}
+}
+
+void	f(int signum, siginfo_t *info, void *context)
+{
+	if (g_data.pid == 0)
+		g_data.pid = info->si_pid;
+	if (info == 0)
+		exit(EXIT_FAILURE);
+	if (context == 0)
+		exit(EXIT_FAILURE);
+	printer(signum);
 }
 
 int	main(void)
@@ -52,6 +63,7 @@ int	main(void)
 	act.sa_flags = SA_SIGINFO;
 	g_data.c = 0;
 	g_data.cnt = 0;
+	g_data.pid = 0;
 	if (sigaction(SIGUSR1, &act, NULL) != 0)
 	{
 		ft_printf("can't catch SIGUSR1\n");

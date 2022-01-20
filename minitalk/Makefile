@@ -14,13 +14,12 @@ LIBFT_LDIR	= $(shell pwd)/Libft
 LIBFT_LIB	= -L$(LIBFT_LDIR) -l$(LIBFT_NAME)
 
 LIB			= $(shell pwd)/inc
-CFILES		= main 
-SFILES		= main
+CFILES		= client/main.c \
+			client/send_msg.c
+SFILES		= server/main.c
 
-CSRCS = client/$(addsuffix .c, $(CFILES))
-COBJS = client/$(addsuffix .o, $(CFILES))
-SSRCS = server/$(addsuffix .c, $(SFILES))
-SOBJS = server/$(addsuffix .o, $(SFILES))
+COBJS = $(CFILES:.c=.o)
+SOBJS = $(SFILES:.c=.o)
 
 %.o: %.c
 	make -C $(PRINFT_LDIR) all
@@ -50,5 +49,4 @@ re: clean all
 debug: $(DNAME)
 	make -C $(PRINFT_LDIR) all
 	make -C $(LIBFT_LDIR) all
-	gcc -g -o client/client $(CSRCS) $(PRINFT_LIB) $(LIBFT_LIB) -I$(LIB)
-	gcc -g -o server/server $(SSRCS) $(PRINFT_LIB) $(LIBFT_LIB) -I$(LIB)
+	gcc -g -o client/client $(CFILES) $(PRINFT_LIB) $(LIBFT_LIB) -I$(LIB)

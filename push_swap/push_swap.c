@@ -55,7 +55,7 @@ static void	shrt_rt(t_stack *stack)
 		mov[0] = max + 1;
 		mov[1] = stack->b_len - max + 1;
 		mov[2] = min + 3;
-		mov[3] = stack->b_len - min +3;
+		mov[3] = stack->b_len - min + 3;
 		sorting_order(stack, find_min_idx(mov, 4), max, min);
 	}
 }
@@ -63,8 +63,6 @@ static void	shrt_rt(t_stack *stack)
 static void	pa_largest_num(t_stack *stack, int iter)
 {
 	int	len;
-	int	max;
-	int	min;
 
 	len = stack->b_len;
 	while (stack->b_len)

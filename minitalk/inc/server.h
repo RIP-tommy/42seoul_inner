@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 22:48:19 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/18 22:49:18 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:49:59 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@
 # include <errno.h>
 
 typedef struct s_msg_data {
-	char	c;
-	int		cnt;
+	unsigned char	c;
+	unsigned int	cnt;
+	unsigned int	pid;
 }	t_msg_data;
 
 int	main(void);
