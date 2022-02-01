@@ -37,7 +37,7 @@ static void	rb(t_stack *stack)
 	while (i < stack->b_len - 1)
 	{
 		stack->b_stack[i] = stack->b_stack[i + 1];
-		 i += 1;
+		i += 1;
 	}
 	stack->b_stack[stack->b_len - 1] = fst_el;
 }

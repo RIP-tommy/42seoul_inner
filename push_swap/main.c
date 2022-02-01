@@ -94,8 +94,11 @@ int	main(int ac, char **av)
 	init_stack(s_ptr, ac, av);
 	if (ac <= 4)
 		small_push_swap(s_ptr);
-	if (!is_sorted_asc(stack.a_stack, stack.a_len) && ac > 4)
-		push_swap(s_ptr);
+	else if (ac <= 6)
+		imbecile_ft(s_ptr);
+	else
+		if (!is_sorted_asc(stack.a_stack, stack.a_len) && ac > 4)
+			push_swap(s_ptr);
 	free(stack.a_stack);
 	free(stack.b_stack);
 	return (0);

@@ -18,7 +18,8 @@ FILES		= main \
 			rr_operations \
 			find_number \
 			push_swap \
-			small_push_swap
+			small_push_swap \
+			imbecile_ft
 
 SRCS = $(addsuffix .c, $(FILES))
 OBJS = $(addsuffix .o, $(FILES))

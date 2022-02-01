@@ -40,5 +40,6 @@ int		find_max_idx(int *arr, int len);
 int		find_min_idx(int *arr, int len);
 void	push_swap(t_stack *stack);
 void	small_push_swap(t_stack *stack);
+void	imbecile_ft(t_stack *stack);
 
 #endif
