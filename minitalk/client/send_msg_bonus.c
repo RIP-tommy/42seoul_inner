@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   send_msg.c                                         :+:      :+:    :+:   */
+/*   send_msg_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 17:59:43 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/02/03 17:59:43 by sungmcho         ###   ########.fr       */
+/*   Created: 2022/02/03 17:59:38 by sungmcho          #+#    #+#             */
+/*   Updated: 2022/02/03 17:59:49 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/client.h"
+#include "../inc/client_bonus.h"
 
 static void	send_zero(int pid)
 {

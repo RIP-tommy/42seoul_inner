@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 22:45:56 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/02/03 19:32:09 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/02/03 19:32:41 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/server.h"
+#include "../inc/server_bonus.h"
 
 t_msg_data	g_data;
 
@@ -31,6 +31,7 @@ static void	printer(int signum)
 		g_data.cnt = 0;
 		write(1, "\n", 1);
 		usleep(80);
+		kill(g_data.pid, SIGUSR1);
 		g_data.pid = 0;
 	}
 	if (g_data.cnt == 8)
@@ -61,6 +62,7 @@ int	main(void)
 	act.sa_flags = SA_SIGINFO;
 	g_data.c = 0;
 	g_data.cnt = 0;
+	g_data.pid = 0;
 	if (sigaction(SIGUSR1, &act, NULL) != 0)
 	{
 		ft_printf("can't catch SIGUSR1\n");

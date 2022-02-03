@@ -18,8 +18,15 @@ CFILES		= client/main.c \
 			client/send_msg.c
 SFILES		= server/main.c
 
+CBFILES		= client/main_bonus.c \
+			client/send_msg_bonus.c
+SBFILES		= server/main_bonus.c
+
 COBJS = $(CFILES:.c=.o)
 SOBJS = $(SFILES:.c=.o)
+
+CBOBJS = $(CBFILES:.c=.o)
+SBOBJS = $(SBFILES:.c=.o)
 
 %.o: %.c
 	make -C $(PRINFT_LDIR) all
@@ -32,10 +39,14 @@ $(NAME): $(COBJS) $(SOBJS)
 
 all: $(NAME)
 
+bonus: $(CBOBJS) $(SBOBJS)
+	gcc -o client/client $(CBOBJS) $(PRINFT_LIB) $(LIBFT_LIB) -I$(LIB)
+	gcc -o server/server $(SBOBJS) $(PRINFT_LIB) $(LIBFT_LIB) -I$(LIB)
+
 clean:
 	make -C $(PRINFT_LDIR) clean
 	make -C $(LIBFT_LDIR) clean
-	$(RM) $(COBJS) $(SOBJS)
+	$(RM) $(COBJS) $(SOBJS) $(CBOBJS) $(SBOBJS)
 
 fclean: clean
 	make -C $(PRINFT_LDIR) fclean
