@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:24:28 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/27 16:03:29 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:57:30 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_stack {
 }	t_stack;
 
 int		is_sorted_asc(int *arr, int len);
-int		is_sorted_desc(int *arr, int len);
 void	over_max_min_int_checker(char *str);
 void	exit_function(void);
 void	pa(t_stack *stack);

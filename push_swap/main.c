@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:24:08 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/27 16:59:51 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/02/03 14:05:00 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,15 @@ int	main(int ac, char **av)
 	error_checker(ac, av);
 	s_ptr = &stack;
 	init_stack(s_ptr, ac, av);
-	if (ac <= 4)
-		small_push_swap(s_ptr);
-	else if (ac <= 6)
-		imbecile_ft(s_ptr);
-	else
-		if (!is_sorted_asc(stack.a_stack, stack.a_len) && ac > 4)
+	if (!is_sorted_asc(stack.a_stack, stack.a_len))
+	{
+		if (ac <= 4)
+			small_push_swap(s_ptr);
+		else if (ac <= 6)
+			imbecile_ft(s_ptr);
+		else
 			push_swap(s_ptr);
+	}
 	free(stack.a_stack);
 	free(stack.b_stack);
 	return (0);
