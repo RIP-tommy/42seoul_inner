@@ -6,7 +6,7 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 22:47:12 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/18 22:48:12 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/02/05 16:21:00 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <stdlib.h>
 # include <errno.h>
 
-int		main(int ac, char **av);
 void	send_msg(int pid, char *s);
 
 #endif

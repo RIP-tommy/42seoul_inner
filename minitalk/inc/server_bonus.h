@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 22:48:19 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/02/03 17:59:07 by sungmcho         ###   ########.fr       */
+/*   Created: 2022/02/05 16:20:00 by sungmcho          #+#    #+#             */
+/*   Updated: 2022/02/05 16:21:27 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERVER_H_BONUS
-# define SERVER_H_BONUS
+#ifndef SERVER_BONUS_H
+# define SERVER_BONUS_H
 
 # include "../Libft/libft.h"
 # include "../printf/ft_printf.h"
@@ -27,7 +27,5 @@ typedef struct s_msg_data {
 	unsigned int	cnt;
 	unsigned int	pid;
 }	t_msg_data;
-
-int	main(void);
 
 #endif

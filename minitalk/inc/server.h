@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungmcho <sungmcho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 22:48:19 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/01/20 12:49:59 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/02/05 16:20:57 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,5 @@ typedef struct s_msg_data {
 	unsigned int	cnt;
 	unsigned int	pid;
 }	t_msg_data;
-
-int	main(void);
 
 #endif

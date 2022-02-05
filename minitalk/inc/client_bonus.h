@@ -5,13 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 22:47:12 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/02/03 17:58:37 by sungmcho         ###   ########.fr       */
+/*   Created: 2022/02/05 16:19:43 by sungmcho          #+#    #+#             */
+/*   Updated: 2022/02/05 16:21:18 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLIENT_H_BONUS
-# define CLIENT_H_BONUS
+#ifndef CLIENT_BONUS_H
+# define CLIENT_BONUS_H
+
+# include <stdarg.h>
+# include <unistd.h>
 
 # include "../Libft/libft.h"
 # include "../printf/ft_printf.h"
@@ -22,7 +25,6 @@
 # include <stdlib.h>
 # include <errno.h>
 
-int		main(int ac, char **av);
 void	send_msg(int pid, char *s);
 
 #endif
