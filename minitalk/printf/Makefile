@@ -6,7 +6,7 @@
 #    By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:21:21 by sungmcho          #+#    #+#              #
-#    Updated: 2022/01/14 17:15:36 by sungmcho         ###   ########.fr        #
+#    Updated: 2022/02/08 17:24:51 by sungmcho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,10 +35,10 @@ OBJS = $(SRCS:.c=.o)
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+all: $(NAME)
+
 $(NAME): $(OBJS)
 	$(AR) $@ $^
-
-all: $(NAME)
 
 clean:
 	$(RM) $(OBJS)
