@@ -30,8 +30,6 @@ static void	printer(int signum)
 	{
 		g_data.cnt = 0;
 		write(1, "\n", 1);
-		usleep(80);
-		g_data.pid = 0;
 	}
 	if (g_data.cnt == 8)
 	{

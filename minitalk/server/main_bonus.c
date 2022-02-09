@@ -30,8 +30,18 @@ static void	printer(int signum)
 	{
 		g_data.cnt = 0;
 		write(1, "\n", 1);
+		if (kill(g_data.pid, SIGUSR1) == -1)
+		{
+			if (errno == EPERM)
+				ft_printf("Process exists, but we don't have "
+					"permission to send it a signal\n");
+			else if (errno == ESRCH)
+				ft_printf("Process does not exist\n");
+			else
+				ft_printf("kill");
+			exit(EXIT_FAILURE);
+		}
 		usleep(80);
-		kill(g_data.pid, SIGUSR1);
 		g_data.pid = 0;
 	}
 	if (g_data.cnt == 8)

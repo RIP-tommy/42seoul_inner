@@ -22,25 +22,13 @@ static void	handler(int signo)
 int	main(int ac, char **av)
 {
 	signal(SIGUSR1, handler);
-	if (ac < 3)
+	if (ac != 3)
 	{
-		if (ac < 2)
-		{
-			ft_printf("Need a server pid.\n");
-			exit(EXIT_FAILURE);
-		}
-		else
-		{
-			ft_printf("Need a string to send.\n");
-			exit(EXIT_FAILURE);
-		}
-	}
-	if (ac > 3)
-	{
-		ft_printf("Too many arguments.\n");
+		ft_printf("Check your inputs.\nex)./client pid \"message to send\"\n");
 		exit(EXIT_FAILURE);
 	}
-	send_msg(ft_atoi(av[1]), av[2]);
+	else
+		send_msg(ft_atoi(av[1]), av[2]);
 	pause();
 	return (EXIT_SUCCESS);
 }

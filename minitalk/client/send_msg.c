@@ -62,7 +62,7 @@ static void	bit_converter(int pid, unsigned char c)
 			send_zero(pid);
 		else
 			send_one(pid);
-		usleep(125);
+		usleep(80);
 	}
 }
 
@@ -79,6 +79,6 @@ void	send_msg(int pid, char *s)
 	while (i--)
 	{
 		send_zero(pid);
-		usleep(125);
+		usleep(80);
 	}
 }
