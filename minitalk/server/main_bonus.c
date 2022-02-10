@@ -6,13 +6,28 @@
 /*   By: sungmcho <sungmcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 22:45:56 by sungmcho          #+#    #+#             */
-/*   Updated: 2022/02/03 19:32:41 by sungmcho         ###   ########.fr       */
+/*   Updated: 2022/02/10 15:21:49 by sungmcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/server_bonus.h"
 
 t_msg_data	g_data;
+
+static void	send_back(void)
+{
+	if (kill(g_data.pid, SIGUSR1) == -1)
+	{
+		if (errno == EPERM)
+			ft_printf("Process exists, but we don't have "
+				"permission to send it a signal\n");
+		else if (errno == ESRCH)
+			ft_printf("Process does not exist\n");
+		else
+			ft_printf("kill");
+		exit(EXIT_FAILURE);
+	}
+}
 
 static void	printer(int signum)
 {
@@ -30,17 +45,7 @@ static void	printer(int signum)
 	{
 		g_data.cnt = 0;
 		write(1, "\n", 1);
-		if (kill(g_data.pid, SIGUSR1) == -1)
-		{
-			if (errno == EPERM)
-				ft_printf("Process exists, but we don't have "
-					"permission to send it a signal\n");
-			else if (errno == ESRCH)
-				ft_printf("Process does not exist\n");
-			else
-				ft_printf("kill");
-			exit(EXIT_FAILURE);
-		}
+		send_back();
 		usleep(80);
 		g_data.pid = 0;
 	}
